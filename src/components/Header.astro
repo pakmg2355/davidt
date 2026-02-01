@@ -1,0 +1,68 @@
+<header class="site-header">
+    <nav class="menu">
+        <a href="/">Inicio</a>
+        <a href="/libros">Libros</a>
+        <a href="/galeria">Dibujos</a>
+        <a href="/contacto">Contacto</a>
+    </nav>
+</header>
+
+<style>
+    .site-header {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        color: white;
+        width: 100%;
+    }
+
+    .menu {
+        margin: 0;
+        padding: 1.2rem 0;
+        display: flex;
+        gap: 1.5rem;
+        font-size: 1.1rem;
+        font-family: "Playfair Display", serif;
+        justify-content: center;
+    }
+
+    /* Links como botones */
+    .menu a {
+        position: relative;
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.1); /* semitransparente */
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover dinámico */
+    .menu a:hover {
+        background-color: var(--accent);
+        color: rgb(172, 167, 167);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Subrayado animado opcional */
+    .menu a::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: 4px;
+        width: 80%;
+        height: 2px;
+        background-color: white;
+        border-radius: 2px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu a:hover::after {
+        opacity: 1;
+        background-color: black;
+    }
+</style>

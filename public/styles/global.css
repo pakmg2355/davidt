@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    overflow-x: hi;
+    padding: 0;
+    background-color: rgb(58, 58, 58) !important;
+    background: url('/img/fondo-papel.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+
+}
+
+img {
+    width: 100%;
+}
+
+/* animaciones */
+.fade-up {
+    opacity: 0;
+    transform: translateY(200px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-200px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
