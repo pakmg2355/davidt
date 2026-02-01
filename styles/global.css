@@ -3,7 +3,7 @@ body {
     overflow-x: hi;
     padding: 0;
     background-color: rgb(58, 58, 58) !important;
-    background: url('/img/fondo-papel.jpg') no-repeat center center fixed;
+    background: url('img/fondo-papel.jpg') no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
 }
