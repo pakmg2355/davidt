@@ -1,0 +1,194 @@
+<header class="site-header">
+    <nav class="menu">
+        <a href="/es">
+            <div class="element-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+                    ></path>
+                </svg>
+                <div>Inicio</div>
+            </div>
+        </a>
+
+        <a href="/es/lib">
+            <div class="element-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 0-3 3V4z"
+                    ></path>
+                    <path d="M7 20h11V7"></path>
+                </svg>
+                <div>Libros</div>
+            </div>
+        </a>
+
+        <a href="/es/gal">
+            <div class="element-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M21 16l-5-5-4 4-2-2-5 5"></path>
+                </svg>
+                <div>Dibujos</div>
+            </div>
+        </a>
+
+        <a href="/es/cont">
+            <div class="element-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 5h18v14H3z"></path>
+                    <path d="M3 5l9 7 9-7"></path>
+                </svg>
+                <div>Contacto</div>
+            </div>
+        </a>
+
+        <a href="/es" class="lang-btn" aria-label="Español">
+            <svg
+                class="circle"
+                viewBox="0 0 64 64"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <!-- Fondo rojo y amarillo de España -->
+                <circle cx="32" cy="32" r="32" fill="#AA151B"></circle>
+                <rect y="21" width="64" height="22" fill="#F1BF00"></rect>
+            </svg>
+        </a>
+
+        <a href="/val" class="lang-btn" aria-label="Valencià">
+            <svg
+                class="circle"
+                viewBox="0 0 64 64"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <!-- Fondo azul y amarillo de la Senyera Valenciana -->
+                <rect width="64" height="64" fill="#FFD700"></rect>
+                <rect y="10" width="64" height="10" fill="#C60C30"></rect>
+                <rect y="20" width="64" height="10" fill="#FFD700"></rect>
+                <rect y="30" width="64" height="10" fill="#C60C30"></rect>
+                <rect y="40" width="64" height="10" fill="#FFD700"></rect>
+                <rect y="50" width="64" height="10" fill="#C60C30"></rect>
+                <circle
+                    cx="32"
+                    cy="32"
+                    r="32"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="0"></circle>
+            </svg>
+        </a>
+    </nav>
+</header>
+
+<style>
+    .site-header {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        color: white;
+        width: 100%;
+    }
+
+    .menu {
+        margin: 0;
+        padding: 1.2rem 0;
+        display: flex;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+        font-family: "Playfair Display", serif;
+        justify-content: center;
+    }
+
+    /* Links como botones */
+    .menu a {
+        position: relative;
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.1); /* semitransparente */
+        color: white;
+        font-size: 1rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .menu svg {
+        width: 1.1em;
+        height: 1.1em;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.3s ease;
+        margin-bottom: 5px;
+    }
+
+    .menu a:hover svg {
+        transform: translateY(-1px) scale(1.1);
+    }
+    /* Hover dinámico */
+    .menu a:hover {
+        background-color: var(--accent);
+        color: rgb(172, 167, 167);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Subrayado animado opcional */
+    .menu a::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: 4px;
+        width: 80%;
+        height: 2px;
+        background-color: white;
+        border-radius: 2px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu a:hover::after {
+        opacity: 1;
+        background-color: black;
+    }
+    .element-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .lang-menu {
+        display: flex;
+        justify-content: center; /* centra horizontalmente los botones */
+        align-items: center; /* centra verticalmente los botones */
+        gap: 1rem; /* espacio entre botones */
+        width: 100%; /* ocupa todo el ancho del contenedor */
+        padding: 1rem 0; /* opcional: espacio arriba/abajo */
+    }
+
+    .lang-btn {
+        flex: 1 1 0; /* ocupa proporcionalmente según el contenedor */
+        max-width: 30px; /* tamaño máximo para no crecer demasiado */
+        aspect-ratio: 1 / 1; /* siempre cuadrado */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .lang-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .lang-btn svg.circle {
+        width: 90%; /* ocupa casi todo el botón, dejando un margen */
+        height: 90%;
+        border-radius: 50%;
+        display: block;
+    }
+</style>

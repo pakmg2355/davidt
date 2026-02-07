@@ -1,81 +1,12 @@
----
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
----
-
-<BaseLayout title="El autor">
-    <section class="autor-presentacion">
-        <img
-            class="autor-foto fade-left"
-            src="/img/david.webp"
-            alt="Foto del autor"
-        />
-
-        <div class="autor-texto fade-right">
-            <h2>Juan Pérez</h2>
-            <p>
-                Soy un apasionado de la ilustración y la escritura desde que
-                tengo memoria. Cada dibujo y cada historia que comparto nace de
-                experiencias, viajes y sueños que me han acompañado toda la
-                vida.
-            </p>
-            <p>
-                Me gusta conectar con los lectores y mostrar un mundo donde la
-                imaginación no tiene límites. ¡Gracias por visitar esta pequeña
-                ventana a mi trabajo!
-            </p>
-        </div>
-    </section>
-</BaseLayout>
-
-<style>
-    .autor-presentacion {
-        display: flex;
-        flex-direction: column; /* en móvil, vertical */
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 2rem 1rem;
-    }
-
-    /* Imagen en círculo */
-    .autor-foto {
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 4px solid var(--accent);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .autor-foto:hover {
-        transform: scale(1.05);
-    }
-
-    /* Texto del autor */
-    .autor-texto h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .autor-texto p {
-        max-width: 600px;
-        line-height: 1.6;
-        color: var(--text-main);
-    }
-
-    /* Layout horizontal en pantallas grandes */
-    @media (min-width: 768px) {
-        .autor-presentacion {
-            flex-direction: row;
-            text-align: left;
-            justify-content: center;
-        }
-
-        .autor-texto {
-            margin-left: 2rem;
-        }
-    }
-</style>
+<html lang="val">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="refresh" content="0; url=/val" />
+        <title>Redirigiendo...</title>
+    </head>
+    <body>
+        <p>
+            Si no te redirige automáticamente, haz clic <a href="/val">aquí</a>.
+        </p>
+    </body>
+</html>

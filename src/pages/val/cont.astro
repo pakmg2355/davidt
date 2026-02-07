@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+---
+
+<BaseLayout title="Contacto">
+	<section class="contacto">
+		<h1 class="fade-up">Contacto</h1>
+		<p class="fade-up">
+			Si vols posar-te en contacte amb mi, completa el formulari o
+			utilitza les dades de contacte a continuació.
+		</p>
+
+		<div class="contacto-contenedor">
+			<!-- Formulario -->
+			<form class="contacto-form fade-up" action="#" method="POST">
+				<label>
+					Nom
+					<input
+						type="text"
+						name="nombre"
+						placeholder="Tu nombre"
+						required
+					/>
+				</label>
+
+				<label>
+					Correu electrónic
+					<input
+						type="email"
+						name="email"
+						placeholder="tu@correo.com"
+						required
+					/>
+				</label>
+
+				<label>
+					Missatge
+					<textarea
+						name="mensaje"
+						rows="5"
+						placeholder="Escribe tu mensaje aquí..."
+						required></textarea>
+				</label>
+
+				<button type="submit">Enviar</button>
+			</form>
+
+			<!-- Información de contacto -->
+			<div class="contacto-info fade-up">
+				<h2>O contacta'm directament</h2>
+				<p><strong>Email:</strong> autor@correo.com</p>
+				<p><strong>Teléfon:</strong> +34 600 123 456</p>
+				<p><strong>Xarxes socials:</strong></p>
+				<ul>
+					<li>
+						<a href="https://twitter.com/" target="_blank"
+							>Twitter</a
+						>
+					</li>
+					<li>
+						<a href="https://instagram.com/" target="_blank"
+							>Instagram</a
+						>
+					</li>
+					<li>
+						<a href="https://linkedin.com/" target="_blank"
+							>LinkedIn</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.contacto {
+		padding: 2rem 1rem;
+		margin: auto;
+		max-width: 800px;
+	}
+
+	.contacto h1 {
+		font-family: "Playfair Display", serif;
+		text-align: center;
+		font-size: 2.2rem;
+		margin-bottom: 1rem;
+	}
+
+	.contacto p {
+		text-align: center;
+		margin-bottom: 2rem;
+		line-height: 1.6;
+		color: var(--text-main);
+	}
+
+	.contacto-contenedor {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	/* Formulario */
+	.contacto-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.contacto-form label {
+		display: flex;
+		flex-direction: column;
+		font-weight: 500;
+		color: var(--text-main);
+	}
+
+	.contacto-form input,
+	.contacto-form textarea {
+		margin-top: 0.3rem;
+		padding: 0.6rem 0.8rem;
+		border-radius: 6px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		font-size: 1rem;
+		transition: all 0.3s ease;
+	}
+
+	.contacto-form input:focus,
+	.contacto-form textarea:focus {
+		border-color: var(--accent);
+		outline: none;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.contacto-form button {
+		padding: 0.7rem 1.5rem;
+		background-color: var(--accent);
+		color: white;
+		font-weight: 600;
+		border: none;
+		border-radius: 6px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.contacto-form button:hover {
+		background-color: #333;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	/* Información de contacto */
+	.contacto-info {
+		padding: 1rem;
+		background-color: rgba(255, 255, 255, 0.05);
+		border-radius: 8px;
+	}
+
+	.contacto-info h2 {
+		margin-bottom: 1rem;
+	}
+
+	.contacto-info p,
+	.contacto-info ul {
+		margin: 0.3rem 0;
+	}
+
+	.contacto-info ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		gap: 1rem;
+	}
+
+	.contacto-info a {
+		color: var(--accent);
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.contacto-info a:hover {
+		text-decoration: underline;
+		transform: translateY(-1px);
+	}
+</style>

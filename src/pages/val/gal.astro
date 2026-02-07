@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
+---
+
+<BaseLayout title="Dibujos">
+    <section class="galeria">
+        {
+            dibujos.map((d) => (
+                <Image
+                    class="fade-up imagen"
+                    src={import(`../../assets/img/${d}.jpg`)}
+                    alt="Dibujo a mano"
+                />
+            ))
+        }
+    </section>
+</BaseLayout>
+
+<style>
+    .galeria {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: start;
+        padding: 20px;
+    }
+    .imagen {
+        background: rgb(119, 119, 119);
+        padding: 0.5rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+        width: 300px !important;
+        aspect-ratio: 1;
+    }
+
+    .galeria img:hover {
+        transform: translateY(-4px);
+    }
+</style>

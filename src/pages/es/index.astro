@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/es/BaseLayout.astro";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout title="El autor">
+    <section class="index">
+        <Image
+            class="fade-up imagen"
+            src={import(`../../assets/img/davidt.jpg`)}
+            alt="Dibujo a mano"
+        />
+
+        <div class="autor-texto">
+            <h2>David Tellols</h2>
+            <p class="fade-up">
+                David es un artista de lápiz por el día y un experto bailarín
+                por la noche. Con una habilidad casi sobrenatural para dibujar
+                líneas precisas y sombras perfectas, se dice que sus lápices
+                huyen de sus manos si no los usa a diario. Entre bocetos de
+                dragones, paisajes imposibles y garabatos que podrían
+                confundirse con arte moderno, David encuentra la inspiración en
+                los lugares más insospechados: cafés, parques, y alguna que otra
+                fiesta que termina con un sombrero extraño en la cabeza y un
+                lápiz aún más extraño en la mano. Su lema es simple: “Si no hay
+                risas, no hay dibujo”.
+            </p>
+            <p class="fade-up">
+                Cuando no está creando ilustraciones detalladas, se le puede
+                encontrar planeando la próxima fiesta temática donde los
+                invitados deben llevar pinceles en lugar de copas. Sus amigos
+                dicen que combina su talento artístico con una resistencia
+                sorprendente para el karaoke nocturno, lo que ha dado lugar a
+                algunas de las anécdotas más épicas del barrio. Entre lápices,
+                papel, música alta y risas contagiosas, David ha aprendido que
+                la creatividad no es solo un acto de concentración, sino también
+                un ejercicio de alegría… y a veces de caos controlado.
+            </p>
+            <p class="fade-up">
+                Si alguna vez te cruzas con él, prepárate para una historia, un
+                dibujo inesperado y, probablemente, un baile improvisado en
+                mitad de la calle.
+            </p>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    .index {
+        display: flex;
+        flex-direction: column; /* en móvil, vertical */
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        text-align: left;
+        max-width: 800px;
+    }
+
+    /* Imagen en círculo */
+    .autor-foto {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid var(--accent);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .autor-foto:hover {
+        transform: scale(1.05);
+    }
+
+    /* Texto del autor */
+    .autor-texto h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .autor-texto p {
+        max-width: 600px;
+        line-height: 1.6;
+        color: var(--text-main);
+    }
+
+    .imagen {
+        width: 300px !important;
+        aspect-ratio: 1;
+    }
+
+    /* Layout horizontal en pantallas grandes */
+    @media (min-width: 768px) {
+        .index {
+            flex-direction: row;
+            text-align: left;
+            justify-content: center;
+        }
+
+        .autor-texto {
+            margin-left: 2rem;
+        }
+    }
+</style>

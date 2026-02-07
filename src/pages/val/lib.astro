@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+---
+
+<BaseLayout title="El libro">
+	<h1 class="fade-left">Les nits a la fresca</h1>
+	<section class="libros">
+		<img class="fade-up" src="/img/libro.webp" />
+	</section>
+	<p class="libros fade-up">
+		Una història que barreja misteri, rialles i una mica de caos familiar.
+		Quan el petit Lucas descobreix que la seva àvia ha desaparegut sense
+		deixar rastre… comença una aventura inesperada. Entre pistes que el
+		porten des de la cuina fins al jardí, i amb l’ajuda del seu goset
+		entremaliat i la seva inseparable motxilla, en Lucas intentarà descobrir
+		on s’ha ficat la seva estimada àvia. Però compte: aquesta àvia no és com
+		qualsevol altra. Pot aparèixer ballant al saló, fent ioga sobre la taula
+		del menjador o amagada darrere d’un munt de galetes acabades de coure.
+		Cada pàgina és un descobriment i cada capítol una rialla assegurada. “On
+		està la meva àvia?” és un llibre ple d’il·lustracions, humor i tendresa,
+		perfecte per a nens curiosos… i per a qualsevol adult que recordi que
+		les àvies sempre tenen un pla secret i un somriure llest per a qualsevol
+		situació inesperada.
+	</p>
+</BaseLayout>
+
+<style>
+	.libros {
+		display: flex;
+		flex-direction: column; /* en móvil, vertical */
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		padding: 2rem 1rem;
+		text-align: left;
+		max-width: 800px;
+	}
+</style>

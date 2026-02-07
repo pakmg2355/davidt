@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/es/BaseLayout.astro";
+---
+
+<BaseLayout title="El libro">
+	<h1 class="fade-left">¿Dónde está mi abuela?</h1>
+	<section class="libros">
+		<img class="fade-up" src="/img/libro.webp" />
+	</section>
+	<p class="libros fade-up">
+		Una historia que mezcla misterio, risas y un poco de caos familiar.
+		Cuando el pequeño Lucas descubre que su abuela ha desaparecido sin dejar
+		rastro… comienza una aventura inesperada. Entre pistas que lo llevan
+		desde la cocina hasta el jardín, y con la ayuda de su perro travieso y
+		su inseparable mochila, Lucas intentará descubrir dónde se ha metido su
+		querida abuela. Pero cuidado: esta abuela no es como cualquier otra.
+		Puede aparecer bailando en el salón, haciendo yoga sobre la mesa del
+		comedor o escondida detrás de un montón de galletas recién horneadas.
+		Cada página es un descubrimiento y cada capítulo una carcajada
+		asegurada. “¿Dónde está mi abuela?” es un libro lleno de ilustraciones,
+		humor y ternura, perfecto para niños curiosos… y para cualquier adulto
+		que recuerde que las abuelas siempre tienen un plan secreto y una
+		sonrisa lista para cualquier situación inesperada.
+	</p>
+</BaseLayout>
+
+<style>
+	.libros {
+		display: flex;
+		flex-direction: column; /* en móvil, vertical */
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		padding: 2rem 1rem;
+		text-align: left;
+		max-width: 800px;
+	}
+</style>
