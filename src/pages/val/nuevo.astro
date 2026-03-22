@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+---
+
+<BaseLayout title="El libro">
+	<h1 class="fade-left">Les nits a la fresca</h1>
+	<section class="libros">
+		<img class="fade-up" src="/img/libro.webp" />
+	</section>
+	<p class="libros fade-up">Nuevo</p>
+</BaseLayout>
+
+<style>
+	.libros {
+		display: flex;
+		flex-direction: column; /* en móvil, vertical */
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		padding: 2rem 1rem;
+		text-align: left;
+		max-width: 800px;
+	}
+</style>

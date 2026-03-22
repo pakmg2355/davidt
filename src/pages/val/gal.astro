@@ -9,11 +9,7 @@ const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
     <section class="galeria">
         {
             dibujos.map((d) => (
-                <Image
-                    class="fade-up imagen"
-                    src={import(`../../assets/img/${d}.jpg`)}
-                    alt="Dibujo a mano"
-                />
+                <img class="fade-up imagen" src={`/img/${d}.jpg`} />
             ))
         }
     </section>
@@ -21,21 +17,26 @@ const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
 
 <style>
     .galeria {
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: start;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
         padding: 20px;
     }
+
     .imagen {
+        width: 100%;
+        aspect-ratio: 1;
+
         background: rgb(119, 119, 119);
         padding: 0.5rem;
+
+        border-radius: 16px;
+
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
-        width: 300px !important;
-        aspect-ratio: 1;
     }
 
-    .galeria img:hover {
+    .imagen:hover {
         transform: translateY(-4px);
     }
 </style>
