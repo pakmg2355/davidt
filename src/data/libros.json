@@ -10,10 +10,10 @@
         "amazon_val": "https://www.amazon.es/libro1val"
     },
     {
-        "titulo_es": "Libro Uno",
-        "titulo_val": "Libro Uno val",
-        "descripcion_es": "Descripción del primer libro.",
-        "descripcion_val": "Descripción del primer libro val.",
+        "titulo_es": "Libro Dos",
+        "titulo_val": "Libro Dos val",
+        "descripcion_es": "Descripción del segundo libro.",
+        "descripcion_val": "Descripción del segundo libro val.",
         "imagen_es": "/libros/libro1.jpg",
         "imagen_val": "/libros/libro1.jpg",
         "amazon_es": "https://www.amazon.es/libro1",

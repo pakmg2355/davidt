@@ -1,14 +1,14 @@
 [
     {
-        "titulo_es": "Sobre el autor",
-        "titulo_val": "Sobre el autor val",
-        "bio_es": "Hola, soy jlurbook, proximamente habrá novedades...",
-        "bio_val": "Hola, soy jlurbook, proximamente habrá novedades val..."
+        "titulo_es": "El autor",
+        "titulo_val": "L'autor",
+        "bio_es": "Hola, soy jlurbook",
+        "bio_val": "Hola, soc jlurbook"
     },
     {
-        "titulo_es": "Sobre el autor",
-        "titulo_val": "Sobre el autor val",
-        "bio_es": "Hola, soy jlurbook, proximamente habrá novedades...",
-        "bio_val": "Hola, soy jlurbook, proximamente habrá novedades val..."
+        "titulo_es": "",
+        "titulo_val": "",
+        "bio_es": "Proximamente habrá novedades...",
+        "bio_val": "Properament hi haurà novetats..."
     }
 ]

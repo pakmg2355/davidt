@@ -3,190 +3,574 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 ---
 
 <BaseLayout title="Contacto">
-	<section class="contacto">
-		<h1 class="fade-up">Contacte</h1>
-		<p class="fade-up">
-			Si vols posar-te en contacte amb mi, completa el formulari o
-			utilitza les dades de contacte a continuació.
-		</p>
+	<div class="contacto-wrapper">
+		<div class="fondo-decorativo" aria-hidden="true">
+			<span class="fondo-letra">C</span>
+		</div>
 
-		<div class="contacto-contenedor">
-			<div class="contacto-contenedor">
-				<form name="contacto" method="POST" data-netlify="true">
-					<!-- obligatorio -->
+		<main class="contacto-contenido">
+			<div class="contacto-cabecera">
+				<p class="contacto-etiqueta">Escriu-me</p>
+				<h1 class="contacto-titulo">Contacte</h1>
+				<div class="contacto-divisor">
+					<span class="divisor-ala"></span>
+					<span class="divisor-simbolo">❧</span>
+					<span class="divisor-ala"></span>
+				</div>
+				<p class="contacto-descripcion">
+					Si vols posar-te en contacte amb mi, completa el formulari o
+					utilitza les dades següents. Responc personalment a cada
+					missatge.
+				</p>
+			</div>
+
+			<div class="contacto-cuerpo">
+				<form
+					class="contacto-form"
+					name="contacto"
+					method="POST"
+					data-netlify="true"
+				>
 					<input type="hidden" name="form-name" value="contacto" />
-
-					<!-- anti spam (recomendado) -->
 					<input type="text" name="bot-field" style="display:none" />
 
-					<input
-						type="text"
-						name="nombre"
-						placeholder="Nombre"
-						required
-					/>
-					<input
-						type="email"
-						name="email"
-						placeholder="Email"
-						required
-					/>
-					<textarea name="mensaje" placeholder="Mensaje"></textarea>
+					<div class="campo-grupo campo-grupo--mitad">
+						<div class="campo">
+							<label class="campo-label" for="nombre"
+								>Nombre</label
+							>
+							<input
+								class="campo-input"
+								type="text"
+								id="nombre"
+								name="nombre"
+								placeholder="Tu nombre"
+								required
+							/>
+						</div>
+						<div class="campo">
+							<label class="campo-label" for="email">Email</label>
+							<input
+								class="campo-input"
+								type="email"
+								id="email"
+								name="email"
+								placeholder="tu@email.com"
+								required
+							/>
+						</div>
+					</div>
 
-					<button type="submit">Enviar</button>
+					<div class="campo">
+						<label class="campo-label" for="asunto">Asumpte</label>
+						<input
+							class="campo-input"
+							type="text"
+							id="asunto"
+							name="asunto"
+							placeholder="Motiu del missatge"
+						/>
+					</div>
+
+					<div class="campo">
+						<label class="campo-label" for="mensaje">Missatge</label
+						>
+						<textarea
+							class="campo-input campo-textarea"
+							id="mensaje"
+							name="mensaje"
+							placeholder="Escriu el teu missatge..."
+							required></textarea>
+					</div>
+
+					<div class="form-pie">
+						<button class="form-btn" type="submit">
+							<span class="btn-texto">Enviar missatge</span>
+							<span class="btn-flecha">→</span>
+						</button>
+					</div>
 				</form>
+
+				<aside class="contacto-lateral">
+					<div class="lateral-ornamento">
+						<span class="lat-linea"></span>
+						<span class="lat-rombo">◆</span>
+						<span class="lat-linea"></span>
+					</div>
+
+					<div class="lateral-bloque">
+						<p class="lateral-label">Email</p>
+						<a class="lateral-valor" href="mailto:hola@ejemplo.com"
+							>hola@ejemplo.com</a
+						>
+					</div>
+
+					<div class="lateral-separador"></div>
+
+					<div class="lateral-bloque">
+						<p class="lateral-label">Xarxes</p>
+						<div class="lateral-redes">
+							<a
+								class="lateral-red"
+								href="#"
+								target="_blank"
+								rel="noopener noreferrer">Instagram</a
+							>
+							<a
+								class="lateral-red"
+								href="#"
+								target="_blank"
+								rel="noopener noreferrer">Twitter / X</a
+							>
+							<a
+								class="lateral-red"
+								href="#"
+								target="_blank"
+								rel="noopener noreferrer">LinkedIn</a
+							>
+						</div>
+					</div>
+
+					<div class="lateral-separador"></div>
+
+					<div class="lateral-bloque">
+						<p class="lateral-label">Temps de resposta</p>
+						<p class="lateral-valor lateral-valor--normal">
+							Habitualment en menys de 48 hores
+						</p>
+					</div>
+
+					<div class="lateral-cita">
+						<span class="cita-comilla">"</span>
+						<p class="cita-texto">
+							Tota gran conversa comença amb un primer missatge.
+						</p>
+					</div>
+				</aside>
 			</div>
-		</div>
-	</section>
+		</main>
+
+		<aside class="firma-lateral" aria-hidden="true">
+			<span class="firma-texto">paraules · idees · conversació</span>
+		</aside>
+	</div>
 </BaseLayout>
 
 <style>
-	/* Contenedor general */
-	.contacto {
-		padding: 4rem 1rem; /* más espacio arriba y abajo */
-		margin: 0 auto;
-		max-width: 800px;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap");
+
+	:root {
+		--crema: #f5f0e8;
+		--crema-oscura: #ede6d4;
+		--ocre: #b8860b;
+		--ocre-claro: #d4a520;
+		--carbon: #1a1714;
+		--tinta: #3d3830;
+		--tinta-suave: #6b6358;
+		--linea: #c9bfa8;
+		--blanco: #fdfaf4;
 	}
 
-	/* Título y descripción */
-	.contacto h1 {
-		font-family: "Playfair Display", serif;
-		text-align: center;
-		font-size: 2.5rem;
-		margin-bottom: 0.5rem;
-		color: var(--accent);
-	}
-
-	.contacto p {
-		text-align: center;
-		margin-bottom: 2rem;
-		line-height: 1.6;
-		color: var(--text-main);
-		font-size: 1.1rem;
-	}
-
-	/* Contenedor del formulario */
-	.contacto-contenedor {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-
-	/* Formulario */
-	.contacto form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.2rem;
-		background-color: rgba(255, 255, 255, 0.05); /* suave fondo */
-		padding: 2rem;
-		border-radius: 12px;
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-		transition:
-			transform 0.3s ease,
-			box-shadow 0.3s ease;
-	}
-
-	.contacto form:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
-	}
-
-	.contacto form input,
-	.contacto form textarea {
-		padding: 0.75rem 1rem;
-		border-radius: 8px;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		font-size: 1rem;
-		transition: all 0.3s ease;
-		width: 100%;
-		background-color: #fff;
-	}
-
-	.contacto form input:focus,
-	.contacto form textarea:focus {
-		border-color: var(--accent);
-		outline: none;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	}
-
-	.contacto form textarea {
-		min-height: 120px;
-		resize: vertical;
-	}
-
-	/* Botón */
-	.contacto form button {
-		padding: 0.8rem 1.8rem;
-		background-color: var(--accent);
-		color: #fff;
-		font-weight: 600;
-		border: none;
-		border-radius: 8px;
-		cursor: pointer;
-		align-self: flex-start;
-		transition: all 0.3s ease;
-	}
-
-	.contacto form button:hover {
-		background-color: #333;
-		transform: translateY(-2px);
-		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-	}
-
-	/* Información de contacto extra */
-	.contacto-info {
-		padding: 1.5rem;
-		background-color: rgba(255, 255, 255, 0.05);
-		border-radius: 12px;
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-	}
-
-	.contacto-info h2 {
-		font-size: 1.3rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.contacto-info p,
-	.contacto-info ul {
-		margin: 0.2rem 0;
-	}
-
-	.contacto-info ul {
-		list-style: none;
+	* {
+		box-sizing: border-box;
+		margin: 0;
 		padding: 0;
+	}
+
+	.contacto-wrapper {
+		background-color: var(--crema);
+		min-height: 100vh;
+		font-family: "Jost", sans-serif;
+		color: var(--carbon);
+		position: relative;
+		overflow: hidden;
+	}
+
+	/* LETRA DE FONDO */
+	.fondo-decorativo {
+		position: absolute;
+		inset: 0;
 		display: flex;
-		gap: 1rem;
+		align-items: center;
+		justify-content: flex-start;
+		pointer-events: none;
+		z-index: 0;
+		overflow: hidden;
 	}
 
-	.contacto-info a {
-		color: var(--accent);
+	.fondo-letra {
+		font-family: "Cormorant Garamond", serif;
+		font-size: clamp(18rem, 40vw, 55rem);
+		font-weight: 300;
+		color: var(--crema-oscura);
+		line-height: 1;
+		user-select: none;
+		margin-left: -4rem;
+		opacity: 0.7;
+	}
+
+	/* CONTENIDO */
+	.contacto-contenido {
+		position: relative;
+		z-index: 1;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 5rem 3rem 6rem;
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	/* CABECERA */
+	.contacto-cabecera {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0;
+	}
+
+	.contacto-etiqueta {
+		font-size: 0.65rem;
+		font-weight: 400;
+		letter-spacing: 0.4em;
+		text-transform: uppercase;
+		color: var(--ocre);
+		margin-bottom: 0.6rem;
+	}
+
+	.contacto-titulo {
+		font-family: "Cormorant Garamond", serif;
+		font-size: clamp(3rem, 7vw, 5.5rem);
+		font-weight: 300;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--carbon);
+		line-height: 1;
+		margin-bottom: 1.5rem;
+	}
+
+	.contacto-divisor {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		width: 140px;
+		margin-bottom: 1.5rem;
+	}
+
+	.divisor-ala {
+		flex: 1;
+		height: 1px;
+		background: var(--linea);
+	}
+
+	.divisor-simbolo {
+		font-size: 1.1rem;
+		color: var(--ocre);
+		line-height: 1;
+	}
+
+	.contacto-descripcion {
+		font-size: 0.95rem;
+		font-weight: 300;
+		line-height: 1.9;
+		color: var(--tinta-suave);
+		max-width: 500px;
+	}
+
+	/* CUERPO: FORMULARIO + LATERAL */
+	.contacto-cuerpo {
+		display: grid;
+		grid-template-columns: 1fr 260px;
+		gap: 4rem;
+		align-items: start;
+		border-top: 1px solid var(--linea);
+		padding-top: 3rem;
+	}
+
+	/* FORMULARIO */
+	.contacto-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+	}
+
+	.campo-grupo--mitad {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.campo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.campo-label {
+		font-size: 0.62rem;
+		font-weight: 500;
+		letter-spacing: 0.3em;
+		text-transform: uppercase;
+		color: var(--tinta-suave);
+	}
+
+	.campo-input {
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid var(--linea);
+		padding: 0.6rem 0;
+		font-family: "Jost", sans-serif;
+		font-size: 0.95rem;
+		font-weight: 300;
+		color: var(--carbon);
+		width: 100%;
+		outline: none;
+		transition: border-color 0.25s;
+		border-radius: 0;
+		-webkit-appearance: none;
+	}
+
+	.campo-input::placeholder {
+		color: var(--linea);
+		font-weight: 300;
+	}
+
+	.campo-input:focus {
+		border-bottom-color: var(--ocre);
+	}
+
+	.campo-textarea {
+		min-height: 140px;
+		resize: none;
+		line-height: 1.7;
+		padding-top: 0.4rem;
+	}
+
+	.form-pie {
+		display: flex;
+		align-items: center;
+		padding-top: 0.5rem;
+	}
+
+	.form-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: var(--carbon);
+		color: var(--blanco);
+		border: none;
+		padding: 0.9rem 2.2rem;
+		font-family: "Jost", sans-serif;
+		font-size: 0.7rem;
+		font-weight: 500;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+		cursor: pointer;
+		position: relative;
+		transition: background 0.25s;
+	}
+
+	.form-btn::before {
+		content: "";
+		position: absolute;
+		inset: -3px;
+		border: 1px solid var(--linea);
+		pointer-events: none;
+		transition: inset 0.2s;
+	}
+
+	.form-btn:hover {
+		background: var(--ocre);
+	}
+
+	.form-btn:hover::before {
+		inset: -5px;
+	}
+
+	.btn-flecha {
+		transition: transform 0.2s;
+	}
+
+	.form-btn:hover .btn-flecha {
+		transform: translateX(5px);
+	}
+
+	/* LATERAL */
+	.contacto-lateral {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		padding-left: 2.5rem;
+		border-left: 1px solid var(--linea);
+	}
+
+	.lateral-ornamento {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.lat-linea {
+		flex: 1;
+		height: 1px;
+		background: var(--linea);
+	}
+
+	.lat-rombo {
+		font-size: 0.35rem;
+		color: var(--ocre);
+	}
+
+	.lateral-bloque {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.lateral-label {
+		font-size: 0.6rem;
+		font-weight: 500;
+		letter-spacing: 0.3em;
+		text-transform: uppercase;
+		color: var(--ocre);
+	}
+
+	.lateral-valor {
+		font-size: 0.88rem;
+		font-weight: 300;
+		color: var(--carbon);
 		text-decoration: none;
-		transition: all 0.3s ease;
+		border-bottom: 1px solid transparent;
+		transition:
+			border-color 0.2s,
+			color 0.2s;
+		width: fit-content;
 	}
 
-	.contacto-info a:hover {
-		text-decoration: underline;
-		transform: translateY(-1px);
+	.lateral-valor:hover {
+		color: var(--ocre);
+		border-bottom-color: var(--ocre);
 	}
 
-	/* Responsive */
-	@media (max-width: 600px) {
-		.contacto {
-			padding: 2rem 1rem;
+	.lateral-valor--normal {
+		color: var(--tinta-suave);
+		font-size: 0.82rem;
+		line-height: 1.6;
+	}
+
+	.lateral-redes {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.lateral-red {
+		font-size: 0.85rem;
+		font-weight: 300;
+		color: var(--tinta);
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition:
+			color 0.2s,
+			border-color 0.2s;
+		width: fit-content;
+	}
+
+	.lateral-red:hover {
+		color: var(--ocre);
+		border-bottom-color: var(--ocre);
+	}
+
+	.lateral-separador {
+		height: 1px;
+		background: var(--linea);
+		margin: 1rem 0 1.25rem;
+	}
+
+	.lateral-cita {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--linea);
+		position: relative;
+	}
+
+	.cita-comilla {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 4rem;
+		font-weight: 300;
+		color: var(--linea);
+		line-height: 0.5;
+		display: block;
+		margin-bottom: 0.75rem;
+	}
+
+	.cita-texto {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 1.1rem;
+		font-style: italic;
+		font-weight: 300;
+		color: var(--tinta-suave);
+		line-height: 1.6;
+	}
+
+	/* FIRMA LATERAL VERTICAL */
+	.firma-lateral {
+		position: fixed;
+		right: 1.5rem;
+		top: 50%;
+		transform: translateY(-50%) rotate(90deg);
+		transform-origin: center center;
+		z-index: 2;
+	}
+
+	.firma-texto {
+		font-size: 0.6rem;
+		font-weight: 300;
+		letter-spacing: 0.4em;
+		text-transform: uppercase;
+		color: var(--linea);
+		white-space: nowrap;
+	}
+
+	/* RESPONSIVE */
+	@media (max-width: 800px) {
+		.contacto-contenido {
+			padding: 4rem 2rem 5rem;
+			gap: 2.5rem;
 		}
 
-		.contacto form {
-			padding: 1.5rem;
+		.contacto-cuerpo {
+			grid-template-columns: 1fr;
+			gap: 3rem;
 		}
 
-		.contacto form button {
-			width: 100%;
-			text-align: center;
+		.contacto-lateral {
+			padding-left: 0;
+			border-left: none;
+			border-top: 1px solid var(--linea);
+			padding-top: 2rem;
+		}
+
+		.firma-lateral {
+			display: none;
+		}
+
+		.fondo-letra {
+			font-size: 65vw;
+			margin-left: -3rem;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.campo-grupo--mitad {
+			grid-template-columns: 1fr;
+		}
+
+		.contacto-contenido {
+			padding: 3rem 1.5rem 4rem;
 		}
 	}
 </style>

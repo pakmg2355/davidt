@@ -3,127 +3,403 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 import libros from "../../data/libros.json";
 ---
 
-<BaseLayout title="Libros">
-	<section class="tarjetas">
-		{
-			libros.map((libro) => (
-				<article class="tarjeta">
-					<img
-						class="tarjeta-imagen"
-						src={libro.imagen_es}
-						loading="lazy"
-						alt={libro.titulo_es}
-					/>
+<BaseLayout title="Biblioteca">
+	<div class="biblioteca-wrapper">
+		<header class="biblioteca-header">
+			<div class="header-linea"></div>
+			<h1 class="biblioteca-titulo">LIBROS</h1>
+			<div class="header-linea"></div>
+		</header>
 
-					<div class="tarjeta-contenido">
-						<h2 class="tarjeta-titulo">{libro.titulo_es}</h2>
-						<p class="tarjeta-descripcion">
-							{libro.descripcion_es}
-						</p>
+		<section class="estantes">
+			{
+				libros.map((libro, i) => (
+					<article
+						class={`libro-fila ${i % 2 === 1 ? "libro-fila--invertida" : ""}`}
+					>
+						<div class="libro-portada-wrap">
+							<div class="libro-imagen-marco">
+								<img
+									class="libro-imagen"
+									src={libro.imagen_es}
+									loading="lazy"
+									alt={libro.titulo_es}
+								/>
+							</div>
+						</div>
 
-						<div class="contenedor-link-amazon">
-							<img
-								class="amazon"
-								src="/img/amazon.png"
-								alt="Amazon"
-							/>
+						<div class="libro-info">
+							<div class="libro-categoria">
+								Lectura recomendada
+							</div>
+							<h2 class="libro-titulo">{libro.titulo_es}</h2>
+							<div class="libro-separador">
+								<span class="libro-separador-linea" />
+								<span class="libro-separador-icono">✦</span>
+								<span class="libro-separador-linea" />
+							</div>
+							<p class="libro-descripcion">
+								{libro.descripcion_es}
+							</p>
 							<a
+								class="libro-enlace"
 								target="_blank"
 								href={libro.amazon_es}
 								rel="noopener noreferrer"
 							>
-								Descúbrelo en Amazon
+								<span class="enlace-texto">
+									Encontrar en Amazon
+								</span>
+								<span class="enlace-flecha">→</span>
 							</a>
 						</div>
-					</div>
-				</article>
-			))
-		}
-	</section>
+					</article>
+				))
+			}
+		</section>
+
+		<footer class="biblioteca-footer">
+			<div class="footer-ornamento">— fin —</div>
+		</footer>
+	</div>
 </BaseLayout>
+
 <style>
-	.tarjetas {
+	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+
+	:root {
+		--crema: #f5f0e8;
+		--crema-oscura: #ede6d4;
+		--ocre: #b8860b;
+		--ocre-claro: #d4a520;
+		--carbon: #1a1714;
+		--carbon-suave: #2e2a24;
+		--tinta: #3d3830;
+		--tinta-suave: #6b6358;
+		--linea: #c9bfa8;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.biblioteca-wrapper {
+		background-color: var(--crema);
+		min-height: 100vh;
+		min-width: 80vw;
+		font-family: "Jost", sans-serif;
+		color: var(--carbon);
+		padding: 0 0 4rem;
+	}
+
+	/* HEADER */
+	.biblioteca-header {
+		text-align: center;
+		padding: 5rem 2rem 3rem;
+		background: linear-gradient(
+			180deg,
+			var(--crema-oscura) 0%,
+			var(--crema) 100%
+		);
+		border-bottom: 1px solid var(--linea);
+	}
+
+	.header-ornament {
+		font-size: 2.5rem;
+		color: var(--ocre);
+		line-height: 1;
+		margin-bottom: 1rem;
+		display: block;
+	}
+
+	.biblioteca-titulo {
+		font-family: "Cormorant Garamond", serif;
+		font-size: clamp(3rem, 8vw, 6rem);
+		font-weight: 300;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		margin: 0;
+		color: var(--carbon);
+		line-height: 1;
+	}
+
+	.biblioteca-subtitulo {
+		font-family: "Jost", sans-serif;
+		font-size: 0.8rem;
+		font-weight: 300;
+		letter-spacing: 0.35em;
+		text-transform: uppercase;
+		color: var(--tinta-suave);
+		margin: 0.75rem 0 2rem;
+	}
+
+	.header-linea {
+		width: 80px;
+		height: 1px;
+		background: var(--ocre);
+		margin: 0 auto;
+	}
+
+	/* ESTANTES / LISTA */
+	.estantes {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 3rem 2rem;
 		display: flex;
 		flex-direction: column;
-		width: 80vw;
-		gap: 2rem;
-		padding: 2rem 1rem;
-		align-items: stretch;
+		gap: 0;
 	}
 
-	.tarjeta {
-		background-color: #fff;
-		border-radius: 12px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		overflow: hidden;
+	.libro-fila {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		gap: 0;
+		border-bottom: 1px solid var(--linea);
+		padding: 4rem 0;
+		position: relative;
+		align-items: center;
+	}
+
+	.libro-fila--invertida {
+		grid-template-columns: 1fr 280px;
+	}
+
+	.libro-fila--invertida .libro-portada-wrap {
+		order: 2;
+	}
+
+	.libro-fila--invertida .libro-info {
+		order: 1;
+		padding-right: 3.5rem;
+		padding-left: 0;
+		text-align: right;
+		align-items: flex-end;
+	}
+
+	.libro-fila--invertida .libro-separador {
+		flex-direction: row-reverse;
+	}
+
+	.libro-fila--invertida .libro-enlace {
+		flex-direction: row-reverse;
+	}
+
+	/* NÚMERO Y PORTADA */
+	.libro-portada-wrap {
+		position: relative;
 		display: flex;
-		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	.libro-numero {
+		position: absolute;
+		top: -1.5rem;
+		left: 1rem;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 5rem;
+		font-weight: 300;
+		color: var(--linea);
+		line-height: 1;
+		z-index: 0;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.libro-fila--invertida .libro-numero {
+		left: auto;
+		right: 1rem;
+	}
+
+	.libro-imagen-marco {
+		position: relative;
+		z-index: 1;
+		box-shadow:
+			6px 6px 0px var(--crema-oscura),
+			7px 7px 0px var(--linea),
+			12px 12px 0px var(--crema-oscura),
+			13px 13px 0px var(--linea);
 		transition:
-			transform 0.2s,
-			box-shadow 0.2s;
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
 	}
 
-	.tarjeta:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+	.libro-fila:hover .libro-imagen-marco {
+		transform: translate(-3px, -3px);
+		box-shadow:
+			9px 9px 0px var(--crema-oscura),
+			10px 10px 0px var(--linea),
+			15px 15px 0px var(--crema-oscura),
+			16px 16px 0px var(--linea);
 	}
 
-	.tarjeta-imagen {
-		width: 200px;
+	.libro-imagen {
+		display: block;
+		width: 180px;
+		height: 260px;
 		object-fit: cover;
 	}
 
-	.tarjeta-contenido {
-		padding: 1rem;
+	/* INFO */
+	.libro-info {
+		padding-left: 3.5rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		flex: 1;
+		align-items: flex-start;
+		gap: 0;
 	}
 
-	.tarjeta-titulo {
-		font-size: 1.2rem;
-		font-weight: bold;
-		margin: 0;
+	.libro-categoria {
+		font-size: 0.68rem;
+		font-weight: 400;
+		letter-spacing: 0.3em;
+		text-transform: uppercase;
+		color: var(--ocre);
+		margin-bottom: 0.75rem;
 	}
 
-	.tarjeta-descripcion {
-		font-size: 0.95rem;
-		color: #444;
-		line-height: 1.4;
+	.libro-titulo {
+		font-family: "Cormorant Garamond", serif;
+		font-size: clamp(1.6rem, 3vw, 2.4rem);
+		font-weight: 400;
+		line-height: 1.15;
+		margin: 0 0 1.25rem;
+		color: var(--carbon);
+		font-style: italic;
 	}
 
-	.contenedor-link-amazon {
+	.libro-separador {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
-		margin-top: 0.5rem;
+		gap: 0.6rem;
+		margin-bottom: 1.25rem;
+		width: 100%;
+		max-width: 200px;
 	}
 
-	.contenedor-link-amazon a {
+	.libro-separador-linea {
+		flex: 1;
+		height: 1px;
+		background: var(--linea);
+	}
+
+	.libro-separador-icono {
+		font-size: 0.55rem;
+		color: var(--ocre);
+	}
+
+	.libro-descripcion {
+		font-size: 0.95rem;
+		font-weight: 300;
+		line-height: 1.8;
+		color: var(--tinta);
+		margin: 0 0 2rem;
+		max-width: 420px;
+	}
+
+	.libro-enlace {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
 		text-decoration: none;
-		color: inherit;
+		color: var(--carbon);
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		border-bottom: 1px solid var(--carbon);
+		padding-bottom: 2px;
+		transition:
+			color 0.2s,
+			border-color 0.2s;
 	}
 
-	.amazon {
-		width: 24px;
-		height: 24px;
-		object-fit: contain;
+	.libro-enlace:hover {
+		color: var(--ocre);
+		border-color: var(--ocre);
 	}
 
-	@media (max-width: 600px) {
-		.tarjeta {
-			flex-direction: column;
-			align-items: center;
+	.enlace-flecha {
+		transition: transform 0.2s;
+	}
+
+	.libro-enlace:hover .enlace-flecha {
+		transform: translateX(4px);
+	}
+
+	/* FOOTER */
+	.biblioteca-footer {
+		text-align: center;
+		padding: 3rem 2rem 1rem;
+	}
+
+	.footer-ornamento {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 1rem;
+		font-style: italic;
+		color: var(--tinta-suave);
+		letter-spacing: 0.2em;
+	}
+
+	/* RESPONSIVE */
+	@media (max-width: 700px) {
+		.libro-fila,
+		.libro-fila--invertida {
+			grid-template-columns: 1fr;
+			padding: 3rem 0;
 		}
 
-		.tarjeta-imagen {
-			width: 100%;
-			height: auto;
+		.libro-fila--invertida .libro-portada-wrap {
+			order: 1;
 		}
 
-		.tarjeta-contenido {
-			text-align: center;
+		.libro-fila--invertida .libro-info {
+			order: 2;
+			padding-right: 0;
+			padding-left: 0;
+			text-align: left;
+			align-items: flex-start;
+		}
+
+		.libro-fila--invertida .libro-separador {
+			flex-direction: row;
+		}
+
+		.libro-fila--invertida .libro-enlace {
+			flex-direction: row;
+		}
+
+		.libro-portada-wrap {
+			justify-content: flex-start;
+			padding-left: 1rem;
+		}
+
+		.libro-numero {
+			left: 0;
+			font-size: 4rem;
+		}
+
+		.libro-fila--invertida .libro-numero {
+			left: 0;
+			right: auto;
+		}
+
+		.libro-imagen-marco {
+			margin-top: 2rem;
+		}
+
+		.libro-imagen {
+			width: 140px;
+			height: 200px;
+		}
+
+		.libro-info {
+			padding-left: 0;
+			padding-top: 2rem;
+		}
+
+		.estantes {
+			padding: 2rem 1.25rem;
 		}
 	}
 </style>

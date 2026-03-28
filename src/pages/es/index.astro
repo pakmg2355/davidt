@@ -1,35 +1,387 @@
 ---
 import BaseLayout from "../../layouts/es/BaseLayout.astro";
-
-import bioData from "../../data/bio.json";
+import bio from "../../data/bio.json";
 ---
 
-<BaseLayout title="El autor">
-    <section class="index">
-        <img src="/img/davidt.jpg" />
-
-        <div class="autor-texto">
-            {
-                bioData.map((item) => (
-                    <>
-                        <h2>{item.titulo_es}</h2>
-                        <p>{item.bio_es}</p>
-                    </>
-                ))
-            }
+<BaseLayout title="Inicio">
+    <div class="autor-wrapper">
+        <div class="fondo-decorativo" aria-hidden="true">
+            <span class="fondo-letra">A</span>
         </div>
-    </section>
+
+        <main class="autor-contenido">
+            <div class="autor-fotografia-zona">
+                <div class="foto-marco-exterior">
+                    <div class="foto-marco-interior">
+                        <img
+                            src="/img/davidt.jpg"
+                            alt="Fotografía del autor"
+                            class="autor-foto"
+                            loading="eager"
+                        />
+                    </div>
+                </div>
+                <div class="foto-ornamento">
+                    <span class="ornamento-linea"></span>
+                    <span class="ornamento-rombo">◆</span>
+                    <span class="ornamento-linea"></span>
+                </div>
+            </div>
+
+            <div class="autor-texto-zona">
+                {
+                    bio.map((b) => (
+                        <>
+                            <p class="autor-etiqueta">Autor</p>
+                            <h1 class="autor-nombre">{b.titulo_es}</h1>
+                            <div class="autor-divisor">
+                                <span class="divisor-ala" />
+                                <span class="divisor-simbolo">❧</span>
+                                <span class="divisor-ala" />
+                            </div>
+                            <div class="autor-bio">
+                                {b.bio_es
+                                    .split("\n")
+                                    .map((parrafo: string) =>
+                                        parrafo.trim() ? (
+                                            <p>{parrafo}</p>
+                                        ) : null,
+                                    )}
+                            </div>
+                        </>
+                    ))
+                }
+
+                <div class="autor-cta">
+                    <a href="/es/libros" class="cta-btn">
+                        <span class="cta-texto">Ver mis libros</span>
+                        <span class="cta-flecha">→</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <aside class="firma-lateral" aria-hidden="true">
+            <span class="firma-texto">escritor · pensador · autor</span>
+        </aside>
+    </div>
 </BaseLayout>
 
 <style>
-    .index {
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap");
+
+    :root {
+        --crema: #f5f0e8;
+        --crema-oscura: #ede6d4;
+        --ocre: #b8860b;
+        --ocre-claro: #d4a520;
+        --carbon: #1a1714;
+        --tinta: #3d3830;
+        --tinta-suave: #6b6358;
+        --linea: #c9bfa8;
+        --blanco: #fdfaf4;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .autor-wrapper {
+        background-color: var(--crema);
+        min-height: 100vh;
+        width: 80vw;
+        font-family: "Jost", sans-serif;
+        color: var(--carbon);
+        display: flex;
+        align-items: stretch;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* GRAN LETRA DE FONDO */
+    .fondo-decorativo {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .fondo-letra {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(18rem, 40vw, 55rem);
+        font-weight: 300;
+        color: var(--crema-oscura);
+        line-height: 1;
+        user-select: none;
+        margin-right: -4rem;
+        opacity: 0.8;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .autor-contenido {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 5rem 3rem;
+        align-items: center;
+    }
+
+    /* ZONA FOTOGRAFÍA */
+    .autor-fotografia-zona {
         display: flex;
         flex-direction: column;
-        align-items: center; /* centra horizontalmente los hijos si son más pequeños */
+        align-items: center;
         gap: 1.5rem;
-        padding: 2rem 1rem;
-        min-width: 50%; /* nunca menor al 50% del contenedor padre */
-        width: 80vw; /* ancho base */
-        margin: 0 auto; /* centra el section */
+        padding-right: 4rem;
+    }
+
+    .foto-marco-exterior {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        padding: 6px;
+        background: linear-gradient(
+            135deg,
+            var(--ocre-claro),
+            var(--linea),
+            var(--ocre)
+        );
+    }
+
+    .foto-marco-interior {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        padding: 4px;
+        background: var(--crema);
+        overflow: hidden;
+    }
+
+    .autor-foto {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        filter: sepia(15%) contrast(1.05);
+        transition: filter 0.4s ease;
+    }
+
+    .foto-marco-exterior:hover .autor-foto {
+        filter: sepia(0%) contrast(1.1);
+    }
+
+    .foto-ornamento {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 160px;
+    }
+
+    .ornamento-linea {
+        flex: 1;
+        height: 1px;
+        background: var(--linea);
+    }
+
+    .ornamento-rombo {
+        font-size: 0.4rem;
+        color: var(--ocre);
+    }
+
+    /* ZONA TEXTO */
+    .autor-texto-zona {
+        padding-left: 4rem;
+        border-left: 1px solid var(--linea);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .autor-etiqueta {
+        font-size: 0.65rem;
+        font-weight: 400;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--ocre);
+        margin-bottom: 0.6rem;
+    }
+
+    .autor-nombre {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: var(--carbon);
+        font-style: italic;
+        margin-bottom: 1.5rem;
+    }
+
+    .autor-divisor {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        max-width: 180px;
+    }
+
+    .divisor-ala {
+        flex: 1;
+        height: 1px;
+        background: var(--linea);
+    }
+
+    .divisor-simbolo {
+        font-size: 1.1rem;
+        color: var(--ocre);
+        line-height: 1;
+    }
+
+    .autor-bio {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .autor-bio p {
+        font-size: 0.95rem;
+        font-weight: 300;
+        line-height: 1.9;
+        color: var(--tinta);
+    }
+
+    /* CTA */
+    .autor-cta {
+        display: flex;
+        align-items: center;
+    }
+
+    .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: var(--blanco);
+        background: var(--carbon);
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        padding: 0.85rem 2rem;
+        position: relative;
+        transition:
+            background 0.25s,
+            color 0.25s;
+    }
+
+    .cta-btn::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border: 1px solid var(--linea);
+        pointer-events: none;
+        transition: inset 0.2s;
+    }
+
+    .cta-btn:hover {
+        background: var(--ocre);
+    }
+
+    .cta-btn:hover::before {
+        inset: -5px;
+    }
+
+    .cta-flecha {
+        transition: transform 0.2s;
+    }
+
+    .cta-btn:hover .cta-flecha {
+        transform: translateX(5px);
+    }
+
+    /* FIRMA LATERAL VERTICAL */
+    .firma-lateral {
+        position: fixed;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        transform-origin: center center;
+        z-index: 2;
+    }
+
+    .firma-texto {
+        font-size: 0.6rem;
+        font-weight: 300;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--linea);
+        white-space: nowrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+        .autor-contenido {
+            grid-template-columns: 1fr;
+            padding: 4rem 2rem;
+            gap: 3rem;
+        }
+
+        .autor-fotografia-zona {
+            padding-right: 0;
+        }
+
+        .foto-marco-exterior {
+            width: 220px;
+            height: 220px;
+        }
+
+        .autor-texto-zona {
+            padding-left: 0;
+            border-left: none;
+            border-top: 1px solid var(--linea);
+            padding-top: 3rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .autor-divisor {
+            max-width: 200px;
+        }
+
+        .autor-cta {
+            justify-content: center;
+        }
+
+        .firma-lateral {
+            display: none;
+        }
+
+        .fondo-letra {
+            font-size: 60vw;
+            margin-right: -2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .foto-marco-exterior {
+            width: 180px;
+            height: 180px;
+        }
+
+        .autor-contenido {
+            padding: 3rem 1.5rem;
+        }
     }
 </style>
