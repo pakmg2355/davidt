@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../../layouts/es/BaseLayout.astro";
+---
+
+<BaseLayout title="Contacto">
+	<section class="contacto">
+		<h1 class="fade-up">Contacto</h1>
+		<p class="fade-up">
+			Si quieres ponerte en contacto conmigo, completa el formulario o
+			utiliza los datos de contacto a continuación.
+		</p>
+
+		<div class="contacto-contenedor">
+			<form name="contacto" method="POST" data-netlify="true">
+				<!-- obligatorio -->
+				<input type="hidden" name="form-name" value="contacto" />
+
+				<!-- anti spam (recomendado) -->
+				<input type="text" name="bot-field" style="display:none" />
+
+				<input
+					type="text"
+					name="nombre"
+					placeholder="Nombre"
+					required
+				/>
+				<input type="email" name="email" placeholder="Email" required />
+				<textarea name="mensaje" placeholder="Mensaje"></textarea>
+
+				<button type="submit">Enviar</button>
+			</form>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	/* Contenedor general */
+	.contacto {
+		padding: 4rem 1rem; /* más espacio arriba y abajo */
+		margin: 0 auto;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	/* Título y descripción */
+	.contacto h1 {
+		font-family: "Playfair Display", serif;
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+		color: var(--accent);
+	}
+
+	.contacto p {
+		text-align: center;
+		margin-bottom: 2rem;
+		line-height: 1.6;
+		color: var(--text-main);
+		font-size: 1.1rem;
+	}
+
+	/* Contenedor del formulario */
+	.contacto-contenedor {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	/* Formulario */
+	.contacto form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		background-color: rgba(255, 255, 255, 0.05); /* suave fondo */
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+
+	.contacto form:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+	}
+
+	.contacto form input,
+	.contacto form textarea {
+		padding: 0.75rem 1rem;
+		border-radius: 8px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		font-size: 1rem;
+		transition: all 0.3s ease;
+		width: 100%;
+		background-color: #fff;
+	}
+
+	.contacto form input:focus,
+	.contacto form textarea:focus {
+		border-color: var(--accent);
+		outline: none;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.contacto form textarea {
+		min-height: 120px;
+		resize: vertical;
+	}
+
+	/* Botón */
+	.contacto form button {
+		padding: 0.8rem 1.8rem;
+		background-color: var(--accent);
+		color: #fff;
+		font-weight: 600;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+		align-self: flex-start;
+		transition: all 0.3s ease;
+	}
+
+	.contacto form button:hover {
+		background-color: #333;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	/* Información de contacto extra */
+	.contacto-info {
+		padding: 1.5rem;
+		background-color: rgba(255, 255, 255, 0.05);
+		border-radius: 12px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+
+	.contacto-info h2 {
+		font-size: 1.3rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.contacto-info p,
+	.contacto-info ul {
+		margin: 0.2rem 0;
+	}
+
+	.contacto-info ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		gap: 1rem;
+	}
+
+	.contacto-info a {
+		color: var(--accent);
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.contacto-info a:hover {
+		text-decoration: underline;
+		transform: translateY(-1px);
+	}
+
+	/* Responsive */
+	@media (max-width: 600px) {
+		.contacto {
+			padding: 2rem 1rem;
+		}
+
+		.contacto form {
+			padding: 1.5rem;
+		}
+
+		.contacto form button {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

@@ -9,9 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "astro": "^5.0.0"
   },
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "gh-pages": "^6.3.0"
   }
 }

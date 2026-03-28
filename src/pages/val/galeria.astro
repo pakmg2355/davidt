@@ -1,15 +1,20 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-import { Image } from "astro:assets";
-
-const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
+type AstroImage = { default: { src: string } };
+const imagenes = Object.values(
+    import.meta.glob<AstroImage>("/src/assets/dibujos/*.jpg", { eager: true }),
+);
 ---
 
 <BaseLayout title="Dibujos">
     <section class="galeria">
         {
-            dibujos.map((d) => (
-                <img class="fade-up imagen" src={`/img/${d}.jpg`} />
+            imagenes.map((img) => (
+                <img
+                    class="fade-up imagen"
+                    src={img.default.src}
+                    alt="Dibujo"
+                />
             ))
         }
     </section>
@@ -21,10 +26,11 @@ const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
         flex-direction: column;
         gap: 16px;
         padding: 20px;
+        align-items: center;
     }
 
     .imagen {
-        width: 100%;
+        width: 60%;
         aspect-ratio: 1;
 
         background: rgb(119, 119, 119);
@@ -34,6 +40,7 @@ const dibujos = ["dibujo1", "dibujo2", "dibujo3", "dibujo4", "dibujo5"];
 
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
+        align-items: center;
     }
 
     .imagen:hover {

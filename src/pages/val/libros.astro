@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+import libros from "../../data/libros.json";
+---
+
+<BaseLayout title="Libros">
+	<section class="tarjetas">
+		{
+			libros.map((libro) => (
+				<article class="tarjeta">
+					<img
+						class="tarjeta-imagen"
+						src={libro.imagen_val}
+						loading="lazy"
+						alt={libro.titulo_val}
+					/>
+
+					<div class="tarjeta-contenido">
+						<h2 class="tarjeta-titulo">{libro.titulo_val}</h2>
+						<p class="tarjeta-descripcion">
+							{libro.descripcion_val}
+						</p>
+
+						<div class="contenedor-link-amazon">
+							<img
+								class="amazon"
+								src="/img/amazon.png"
+								alt="Amazon"
+							/>
+							<a
+								target="_blank"
+								href={libro.amazon_val}
+								rel="noopener noreferrer"
+							>
+								Descúbrelo en Amazon
+							</a>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</section>
+</BaseLayout>
+
+<style>
+	.tarjetas {
+		display: flex;
+		flex-direction: column;
+		width: 80vw;
+		gap: 2rem;
+		padding: 2rem 1rem;
+		align-items: stretch;
+	}
+
+	.tarjeta {
+		background-color: #fff;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		display: flex;
+		flex-direction: row;
+		transition:
+			transform 0.2s,
+			box-shadow 0.2s;
+	}
+
+	.tarjeta:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.tarjeta-imagen {
+		width: 200px;
+		object-fit: cover;
+	}
+
+	.tarjeta-contenido {
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex: 1;
+	}
+
+	.tarjeta-titulo {
+		font-size: 1.2rem;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	.tarjeta-descripcion {
+		font-size: 0.95rem;
+		color: #444;
+		line-height: 1.4;
+	}
+
+	.contenedor-link-amazon {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.contenedor-link-amazon a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.amazon {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+	}
+
+	@media (max-width: 600px) {
+		.tarjeta {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.tarjeta-imagen {
+			width: 100%;
+			height: auto;
+		}
+
+		.tarjeta-contenido {
+			text-align: center;
+		}
+	}
+</style>
