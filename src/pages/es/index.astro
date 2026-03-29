@@ -29,37 +29,77 @@ import bio from "../../data/bio.json";
             </div>
 
             <div class="autor-texto-zona">
-                {
-                    bio.map((b) => (
-                        <>
-                            <h1 class="autor-nombre">{b.titulo_val}</h1>
-                            <div class="autor-divisor">
-                                <span class="divisor-ala" />
-                                <span class="divisor-simbolo">❧</span>
-                                <span class="divisor-ala" />
-                            </div>
-                            <div class="autor-bio">
-                                {b.bio_val
-                                    .split("\n")
-                                    .map((parrafo: string) =>
-                                        parrafo.trim() ? (
-                                            <p>{parrafo}</p>
-                                        ) : null,
-                                    )}
-                            </div>
-                        </>
-                    ))
-                }
+                <h1 class="autor-nombre">EL AUTOR</h1>
+                <div class="autor-divisor">
+                    <span class="divisor-ala"></span>
+                    <span class="divisor-simbolo">❧</span>
+                    <span class="divisor-ala"></span>
+                </div>
+                <div class="autor-bio">
+                    <p>
+                        Esta web no nace de una estrategia ni de un plan
+                        perfecto. Nace más bien de un impulso. De varios puntos
+                        de inflexión, de esos momentos en los que la vida se
+                        vuelve rígida y uno entiende que el tiempo no es
+                        infinito… y que hay historias que deben ser contadas
+                        ahora.
+                    </p><p>
+                        Soy escritor, creador de juegos y dibujante autodidacta…
+                        o por lo menos eso pretendo, pero sobre todo intento
+                        recordar la infancia que tuvimos, para entender un poco
+                        mejor la que viven ahora nuestros hijos.
+                    </p><p>
+                        Durante años he ido guardando recuerdos de otra forma de
+                        crecer: tardes en la calle sin mirar el reloj, juegos
+                        que nos inventábamos sobre la marcha, tebeos que pasaban
+                        de mano en mano y cuadernos donde cualquier cosa podía
+                        convertirse en una historia. Hoy observo otra infancia
+                        intensa pero diferente, más rápida, más digital, y mi
+                        inspiración nace justo ahí, entre esos dos universos.
+                    </p><p>
+                        Intento acercar un poco más esos dos mundos, para
+                        aprender, y porque he comprendido que no debemos perder
+                        aquella forma de ver la vida. Casi sin darme cuenta
+                        empecé a dibujar, luego llegaron las historias, y
+                        después los juegos: pequeñas excusas para compartir
+                        tiempo de verdad, para que los niños imaginen sin
+                        límites y para que los adultos recuerden que una vez
+                        también lo hicieron.
+                    </p><p>
+                        Mi hija es el motor de todo este universo. Para ella
+                        empecé a dibujar en plena pandemia, aprendiendo de forma
+                        autodidacta, equivocándome y volviendo a empezar. Más
+                        tarde comprendí que crecer también es pedir ayuda y
+                        decidí formarme en una academia.
+                    </p><p>
+                        Así nació esta web, con el propósito de provocar
+                        emociones a través de dos caminos diferentes:
+                    </p><p>
+                        Jlurbook, donde viven las historias, los dibujos y los
+                        juegos, y Ayri, un espacio inspirado en mi hija, aún por
+                        descubrir pero que dará mucho de qué hablar.
+                    </p><p>
+                        No encontrarás fórmulas mágicas, pero no creo en el
+                        entretenimiento vacío. Creo en la curiosidad, los retos
+                        creativos, en la nostalgia como brújula para apartarnos
+                        de las pantallas y en la imaginación como refugio.
+                    </p><p>
+                        Quiero pensar que, si has llegado hasta aquí, es porque
+                        tú también has sentido ese desgaste, esa urgencia por
+                        apagar el ruido, sentarte en el suelo y permitirte el
+                        lujo de volver a jugar por puro capricho.
+                    </p>
+                </div>
             </div>
             <div class="contenedor-links-bio">
                 <div class="autor-cta">
-                    <a href="/val/ayri" class="cta-btn">
+                    <a href="/es/ayri" class="cta-btn">
                         <span class="cta-texto"> Jlurbook </span>
                         <span class="cta-flecha">→</span>
                     </a>
                 </div>
                 <div class="autor-cta">
-                    <a href="/val/ayri" class="cta-btn">
+                    <a href="/es/ayri" class="cta-btn">
                         <span class="cta-texto"> Ayri </span>
                         <span class="cta-flecha">→</span>
                     </a>
@@ -97,7 +137,6 @@ import bio from "../../data/bio.json";
         justify-content: flex-start; /* opcional si quieres que empiece desde la izquierda */
         min-height: 90vh;
         width: 100vw;
-        font-family: "Jost", sans-serif;
         color: var(--carbon);
         position: relative;
         overflow: hidden;
@@ -116,7 +155,6 @@ import bio from "../../data/bio.json";
     }
 
     .fondo-letra {
-        font-family: "Cormorant Garamond", serif;
         font-size: clamp(18rem, 40vw, 55rem);
         font-weight: 300;
         color: var(--crema-oscura);
@@ -222,7 +260,6 @@ import bio from "../../data/bio.json";
     }
 
     .autor-nombre {
-        font-family: "Cormorant Garamond", serif;
         font-size: clamp(2.4rem, 5vw, 4rem);
         font-weight: 300;
         line-height: 1.05;
@@ -256,6 +293,7 @@ import bio from "../../data/bio.json";
         flex-direction: column;
         gap: 1rem;
         margin-bottom: 2.5rem;
+        text-align: justify;
     }
 
     .autor-bio p {
@@ -331,10 +369,10 @@ import bio from "../../data/bio.json";
     }
 
     /* RESPONSIVE */
-    @media (max-width: 800px) {
+    @media (max-width: 8000px) {
         .autor-contenido {
             grid-template-columns: 1fr;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem;
             gap: 3rem;
         }
 

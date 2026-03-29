@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 import bio from "../../data/bio.json";
 ---
 
-<BaseLayout title="Inicio">
+<BaseLayout title="Inici">
     <div class="autor-wrapper">
         <div class="fondo-decorativo" aria-hidden="true">
             <span class="fondo-letra">A</span>
@@ -15,7 +15,7 @@ import bio from "../../data/bio.json";
                     <div class="foto-marco-interior">
                         <img
                             src="/img/foto_david1.jpg"
-                            alt="Fotografía del autor"
+                            alt="Fotografia de l'autor"
                             class="autor-foto"
                             loading="eager"
                         />
@@ -29,27 +29,68 @@ import bio from "../../data/bio.json";
             </div>
 
             <div class="autor-texto-zona">
-                {
-                    bio.map((b) => (
-                        <>
-                            <h1 class="autor-nombre">{b.titulo_val}</h1>
-                            <div class="autor-divisor">
-                                <span class="divisor-ala" />
-                                <span class="divisor-simbolo">❧</span>
-                                <span class="divisor-ala" />
-                            </div>
-                            <div class="autor-bio">
-                                {b.bio_val
-                                    .split("\n")
-                                    .map((parrafo: string) =>
-                                        parrafo.trim() ? (
-                                            <p>{parrafo}</p>
-                                        ) : null,
-                                    )}
-                            </div>
-                        </>
-                    ))
-                }
+                <h1 class="autor-nombre">L'AUTOR</h1>
+                <div class="autor-divisor">
+                    <span class="divisor-ala"></span>
+                    <span class="divisor-simbolo">❧</span>
+                    <span class="divisor-ala"></span>
+                </div>
+                <div class="autor-bio">
+                    <p>
+                        Aquesta web no naix d'una estratègia ni d'un pla
+                        perfecte. Naix més aviat d'un impuls. De diversos punts
+                        d'inflexió, d'aquells moments en què la vida es torna
+                        rígida i un entén que el temps no és infinit… i que hi
+                        ha històries que s'han de contar ara.
+                    </p><p>
+                        Sóc escriptor, creador de jocs i dibuixant autodidacta…
+                        o almenys això pretenc, però sobretot intente recordar
+                        la infància que vam tindre, per entendre una mica millor
+                        la que viuen ara els nostres fills.
+                    </p><p>
+                        Durant anys he anat guardant records d'una altra manera
+                        de créixer: vesprades al carrer sense mirar el rellotge,
+                        jocs que ens inventàvem sobre la marxa, còmics que
+                        passaven de mà en mà i quaderns on qualsevol cosa podia
+                        convertir-se en una història. Hui observe una altra
+                        infància intensa però diferent, més ràpida, més digital,
+                        i la meua inspiració neix just ahí, entre aquests dos
+                        universos.
+                    </p><p>
+                        Intente acostar una mica més aquests dos mons, per
+                        aprendre, i perquè he comprés que no hem de perdre
+                        aquella manera de veure la vida. Quasi sense adonar-me'n
+                        vaig començar a dibuixar, després van arribar les
+                        històries, i després els jocs: petites excuses per
+                        compartir temps de veritat, perquè els xiquets imaginen
+                        sense límits i perquè els adults recorden que una vegada
+                        també ho van fer.
+                    </p><p>
+                        La meua filla és el motor de tot aquest univers. Per a
+                        ella vaig començar a dibuixar en plena pandèmia,
+                        aprenent de manera autodidacta, equivocant-me i tornant
+                        a començar. Més tard vaig comprendre que créixer també
+                        és demanar ajuda i vaig decidir formar-me en una
+                        acadèmia.
+                    </p><p>
+                        Així va nàixer aquesta web, amb el propòsit de provocar
+                        emocions a través de dos camins diferents:
+                    </p><p>
+                        Jlurbook, on viuen les històries, els dibuixos i els
+                        jocs, i Ayri, un espai inspirat en la meua filla, encara
+                        per descobrir però que donarà molt de què parlar.
+                    </p><p>
+                        No trobaràs fórmules màgiques, però no crec en
+                        l'entreteniment buit. Crec en la curiositat, els reptes
+                        creatius, en la nostàlgia com a brúixola per apartar-nos
+                        de les pantalles i en la imaginació com a refugi.
+                    </p><p>
+                        Vull pensar que, si has arribat fins ací, és perquè tu
+                        també has sentit eixe desgast, eixa urgència per apagar
+                        el soroll, asseure't en el sòl i permetre't el luxe de
+                        tornar a jugar per pur capritx.
+                    </p>
+                </div>
             </div>
             <div class="contenedor-links-bio">
                 <div class="autor-cta">
@@ -97,7 +138,6 @@ import bio from "../../data/bio.json";
         justify-content: flex-start; /* opcional si quieres que empiece desde la izquierda */
         min-height: 90vh;
         width: 100vw;
-        font-family: "Jost", sans-serif;
         color: var(--carbon);
         position: relative;
         overflow: hidden;
@@ -116,7 +156,6 @@ import bio from "../../data/bio.json";
     }
 
     .fondo-letra {
-        font-family: "Cormorant Garamond", serif;
         font-size: clamp(18rem, 40vw, 55rem);
         font-weight: 300;
         color: var(--crema-oscura);
@@ -222,7 +261,6 @@ import bio from "../../data/bio.json";
     }
 
     .autor-nombre {
-        font-family: "Cormorant Garamond", serif;
         font-size: clamp(2.4rem, 5vw, 4rem);
         font-weight: 300;
         line-height: 1.05;
@@ -256,6 +294,7 @@ import bio from "../../data/bio.json";
         flex-direction: column;
         gap: 1rem;
         margin-bottom: 2.5rem;
+        text-align: justify;
     }
 
     .autor-bio p {
@@ -331,10 +370,10 @@ import bio from "../../data/bio.json";
     }
 
     /* RESPONSIVE */
-    @media (max-width: 800px) {
+    @media (max-width: 8000px) {
         .autor-contenido {
             grid-template-columns: 1fr;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem;
             gap: 3rem;
         }
 

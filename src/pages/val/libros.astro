@@ -11,17 +11,17 @@ import libros from "../../data/libros.json";
 					<div class="foto-marco-interior">
 						<img
 							src="/img/logo_jlurbook.jpg"
-							alt="Logo jlurbook"
+							alt="Logo Jlurbook"
 							class="logo-foto"
 							loading="eager"
 						/>
 					</div>
 
 					<p>
-						Bienvenido a mi Biblioteca. Explora un espacio dedicado
-						a la lectura y al descubrimiento. Aquí encontrarás una
-						selección de libros que reflejan mi pasión por las
-						historias, el pensamiento y la creatividad.
+						Benvingut a la meua Biblioteca. Explora un espai dedicat
+						a la lectura i al descobriment. Ací trobaràs una
+						selecció de llibres que reflecteixen la meua passió per
+						les històries, el pensament i la creativitat.
 					</p>
 				</div>
 			</div>
@@ -29,69 +29,116 @@ import libros from "../../data/libros.json";
 
 		<section class="estantes">
 			<div class="contenedor">
-				{
-					libros.map((libro, i) => (
-						<article
-							class={`libro-fila ${i % 2 === 1 ? "libro-fila--invertida" : ""}`}
+				<article class="libro-fila">
+					<div class="libro-portada-wrap">
+						<div class="libro-imagen-marco">
+							<img
+								class="libro-imagen"
+								src="/img/abuela.jpg"
+								loading="lazy"
+								alt="On està la meua àvia?"
+							/>
+						</div>
+					</div>
+
+					<div class="libro-info">
+						<div class="libro-categoria">Lectura recomanada</div>
+						<h2 class="libro-titulo">On està la meua àvia?</h2>
+
+						<div class="libro-separador">
+							<span class="libro-separador-linea"></span>
+							<span class="libro-separador-icono">✦</span>
+							<span class="libro-separador-linea"></span>
+						</div>
+
+						<p class="libro-descripcion">
+							Recordes quan el telèfon tenia cable i les fotos
+							guardaven l'aroma d'un instant irrepetible?
+						</p>
+						<p class="libro-descripcion">
+							Quan els carrers eren salons oberts on els veïns i
+							els riures es compartien sense presses?
+						</p>
+						<p class="libro-descripcion">
+							On està la meua àvia? t'invita a tornar a aqueixos
+							dies amb una mescla d'humor, tendresa i nostàlgia.
+							Pensaments que confronten la pressa digital amb la
+							calma d'una època analògica, aquella que va marcar
+							els qui vam nàixer després dels anys 70.
+						</p>
+						<p class="libro-descripcion">
+							En quin moment vam canviar les mirades sinceres per
+							pantalles lluminoses?
+						</p>
+						<p class="libro-descripcion">
+							Qui ens va arrabassar aquells estius interminables i
+							els silencis plens de significat?
+						</p>
+						<p class="libro-descripcion">
+							Entre aquestes pàgines es recupera l'essencial: d'on
+							venim i què ens anima a detenir-nos, a respirar
+							sense presses i a preguntar-nos si realment hem
+							avançat… o només hem après a córrer més ràpid.
+						</p>
+						<p class="libro-descripcion">
+							Si alguna vegada has sentit l'impuls de silenciar el
+							món digital i tornar a sentir la vida fora de la
+							pantalla, aquest llibre és el teu refugi.
+						</p>
+						<p class="libro-descripcion">
+							Aquesta nit, a l'aire fresc o al saló de casa teua,
+							fes-te un regal: per un moment, obri aquestes
+							pàgines i deixa't portar.
+						</p>
+						<a
+							class="libro-enlace"
+							target="_blank"
+							href="https://www.amazon.com"
+							rel="noopener noreferrer"
 						>
-							<div class="libro-portada-wrap">
-								<div class="libro-imagen-marco">
-									<img
-										class="libro-imagen"
-										src={libro.imagen_val}
-										loading="lazy"
-										alt={libro.titulo_val}
-									/>
-								</div>
-							</div>
-
-							<div class="libro-info">
-								<div class="libro-categoria">
-									Lectura recomendada
-								</div>
-								<h2 class="libro-titulo">{libro.titulo_val}</h2>
-
-								<div class="libro-separador">
-									<span class="libro-separador-linea" />
-									<span class="libro-separador-icono">✦</span>
-									<span class="libro-separador-linea" />
-								</div>
-
-								<p class="libro-descripcion">
-									{libro.descripcion_val}
-								</p>
-
-								<a
-									class="libro-enlace"
-									target="_blank"
-									href={libro.amazon_val}
-									rel="noopener noreferrer"
-								>
-									<img
-										class="img-amazon"
-										src="/img/amazon.png"
-									/>
-									<span>Trobar a Amazon</span>
-									<span class="enlace-flecha">→</span>
-								</a>
-							</div>
-						</article>
-					))
-				}
+							<img class="img-amazon" src="/img/amazon.png" />
+							<span>Trobar a Amazon</span>
+							<span class="enlace-flecha">→</span>
+						</a>
+					</div>
+				</article>
+				<article class="contenedor">
+					<p class="libro-descripcion libro-descripcion-info">
+						On està la meua àvia? <strong
+							>Encara no està disponible.</strong
+						>
+					</p>
+					<p class="libro-descripcion libro-descripcion-info">
+						I no és per falta de ganes, creu-me. Simplement, encara
+						no està com ha d'estar.
+					</p>
+					<p class="libro-descripcion libro-descripcion-info">
+						Hi ha històries que necessiten el seu temps, que no es
+						poden publicar de pressa sense perdre el que les fa
+						especials.
+					</p>
+					<p class="libro-descripcion libro-descripcion-info">
+						On està la meua àvia? Vol ser un llibre dels que et fan
+						parar un moment, mirar enrere i, sense adonar-te,
+						esbossar un somriure.
+					</p>
+					<p class="libro-descripcion libro-descripcion-info">
+						Li falta poc, molt poc. Tan bon punt estiga llest, ho
+						sabràs. I llavors sí… serà un bon moment per obrir-lo.
+					</p>
+				</article>
 			</div>
 		</section>
 
 		<footer class="biblioteca-footer">
 			<div class="contenedor">
-				<div class="footer-ornamento">— fin —</div>
+				<div class="footer-ornamento">— fi —</div>
 			</div>
 		</footer>
 	</div>
 </BaseLayout>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
-
 	:root {
 		--crema: #fdf6ee;
 		--crema-oscura: #f0e6d2;
@@ -109,7 +156,6 @@ import libros from "../../data/libros.json";
 
 	body {
 		margin: 0;
-		font-family: "Jost", sans-serif;
 		background: var(--crema);
 	}
 
@@ -134,7 +180,6 @@ import libros from "../../data/libros.json";
 	}
 
 	.cabecera-libros p {
-		font-family: "Cormorant Garamond", serif;
 		font-size: 1.25rem;
 		line-height: 1.6;
 		max-width: 500px;
@@ -145,6 +190,7 @@ import libros from "../../data/libros.json";
 	.logo-foto {
 		width: 180px;
 		height: 180px;
+		margin-bottom: 10px;
 		border-radius: 50%;
 		object-fit: cover;
 		box-shadow: 0 10px 25px var(--sombra);
@@ -157,12 +203,18 @@ import libros from "../../data/libros.json";
 
 	/* ESTANTES */
 	.estantes {
-		padding: 3rem 0;
+		width: 100%;
+		margin-left: calc(50% - 50vw); /* 🔥 truco pro */
 		background-color: var(--crema-oscura);
+		padding: 3rem 0;
+	}
+	.contenedor {
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 
 	.libro-fila {
-		display: grid;
+		display: flex;
 		grid-template-columns: 260px 1fr;
 		gap: 3rem;
 		align-items: center;
@@ -176,12 +228,6 @@ import libros from "../../data/libros.json";
 
 	.libro-fila--invertida .libro-portada-wrap {
 		order: 2;
-	}
-
-	.libro-fila--invertida .libro-info {
-		order: 1;
-		text-align: right;
-		align-items: flex-end;
 	}
 
 	/* IMAGEN */
@@ -202,8 +248,7 @@ import libros from "../../data/libros.json";
 	}
 
 	.libro-imagen {
-		width: 180px;
-		height: 260px;
+		width: 100%;
 		object-fit: cover;
 	}
 
@@ -212,6 +257,7 @@ import libros from "../../data/libros.json";
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		width: 100%;
 	}
 
 	.libro-categoria {
@@ -222,7 +268,6 @@ import libros from "../../data/libros.json";
 	}
 
 	.libro-titulo {
-		font-family: "Cormorant Garamond", serif;
 		font-size: 2rem;
 		font-style: italic;
 		margin: 0;
@@ -242,11 +287,20 @@ import libros from "../../data/libros.json";
 	}
 
 	.libro-descripcion {
-		line-height: 1.8;
-		max-width: 420px;
+		line-height: 1; /* mejor legibilidad */
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: justify;
+		hyphens: auto; /* divide palabras con guiones */
+		margin-bottom: -15px;
+	}
+
+	.libro-descripcion-info {
+		margin-bottom: 5px;
 	}
 
 	.libro-enlace {
+		margin-top: 30px;
 		text-decoration: none;
 		font-size: 0.75rem;
 		letter-spacing: 0.2em;
@@ -270,12 +324,20 @@ import libros from "../../data/libros.json";
 	}
 
 	.footer-ornamento {
-		font-family: "Cormorant Garamond", serif;
 		font-style: italic;
 	}
 
 	/* RESPONSIVE */
 	@media (max-width: 768px) {
+		.libro-fila {
+			display: block;
+			grid-template-columns: 260px 1fr;
+			gap: 3rem;
+			align-items: center;
+			padding: 3rem 0;
+			border-bottom: 1px solid var(--linea);
+		}
+
 		.cabecera-libros {
 			flex-direction: column;
 			text-align: center;
@@ -285,19 +347,18 @@ import libros from "../../data/libros.json";
 			text-align: center;
 		}
 
-		.libro-fila,
-		.libro-fila--invertida {
-			grid-template-columns: 1fr;
-			text-align: center;
-		}
-
 		.libro-info {
 			align-items: center;
+			text-align: justify;
 		}
 
 		.libro-fila--invertida .libro-info {
 			align-items: center;
 			text-align: center;
 		}
+	}
+	.info-libro {
+		padding: 20px;
+		font-size: 1.2rem;
 	}
 </style>

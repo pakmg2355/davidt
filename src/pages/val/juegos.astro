@@ -1,0 +1,299 @@
+---
+import BaseLayout from "../../layouts/val/BaseLayout.astro";
+import libros from "../../data/libros.json";
+---
+
+<BaseLayout title="Biblioteca">
+	<div class="biblioteca-wrapper">
+		<header class="biblioteca-header">
+			<div class="contenedor">
+				<div class="cabecera-libros">
+					<div class="foto-marco-interior">
+						<img
+							src="/img/logo_jlurbook.jpg"
+							alt="Logo jlurbook"
+							class="logo-foto"
+							loading="eager"
+						/>
+					</div>
+
+					<p>
+						Benvingut a la meva Biblioteca. Explora un espai dedicat
+						a la lectura i al descobriment. Aquí trobaràs una
+						selecció de llibres que reflecteixen la meva passió per
+						les històries, el pensament i la creativitat.
+					</p>
+				</div>
+			</div>
+		</header>
+
+		<section class="estantes">
+			<div class="contenedor">
+				{
+					libros.map((libro, i) => (
+						<article
+							class={`libro-fila ${i % 2 === 1 ? "libro-fila--invertida" : ""}`}
+						>
+							<div class="libro-portada-wrap">
+								<div class="libro-imagen-marco">
+									<img
+										class="libro-imagen"
+										src={libro.imagen_es}
+										loading="lazy"
+										alt={libro.titulo_es}
+									/>
+								</div>
+							</div>
+
+							<div class="libro-info">
+								<div class="libro-categoria">
+									Lectura recomadada
+								</div>
+								<h2 class="libro-titulo">{libro.titulo_es}</h2>
+
+								<div class="libro-separador">
+									<span class="libro-separador-linea" />
+									<span class="libro-separador-icono">✦</span>
+									<span class="libro-separador-linea" />
+								</div>
+
+								<p class="libro-descripcion">
+									{libro.descripcion_es}
+								</p>
+
+								<a
+									class="libro-enlace"
+									target="_blank"
+									href={libro.amazon_es}
+									rel="noopener noreferrer"
+								>
+									<img
+										class="img-amazon"
+										src="/img/amazon.png"
+									/>
+									<span>Encontrar en Amazon</span>
+									<span class="enlace-flecha">→</span>
+								</a>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<footer class="biblioteca-footer">
+			<div class="contenedor">
+				<div class="footer-ornamento">— fin —</div>
+			</div>
+		</footer>
+	</div>
+</BaseLayout>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+
+	:root {
+		--crema: #fdf6ee;
+		--crema-oscura: #f0e6d2;
+		--ocre: #b8860b;
+		--ocre-claro: #d4a520;
+		--carbon: #1a1714;
+		--tinta: #3d3830;
+		--linea: #c9bfa8;
+		--sombra: rgba(0, 0, 0, 0.08);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		background: var(--crema);
+	}
+
+	/* 🔥 CONTENEDOR CENTRAL (CLAVE) */
+	.contenedor {
+		margin: 0;
+	}
+
+	/* HEADER */
+	.biblioteca-header {
+		background: linear-gradient(180deg, var(--crema-oscura), var(--crema));
+		border-bottom: 1px solid var(--linea);
+		align-items: center;
+	}
+
+	.cabecera-libros {
+		padding: 10px;
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	.cabecera-libros p {
+		font-size: 1.25rem;
+		line-height: 1.6;
+		max-width: 500px;
+		text-align: right;
+		margin: 0;
+	}
+
+	.logo-foto {
+		width: 180px;
+		height: 180px;
+		border-radius: 50%;
+		object-fit: cover;
+		box-shadow: 0 10px 25px var(--sombra);
+		transition: 0.3s;
+	}
+
+	.logo-foto:hover {
+		transform: scale(1.05);
+	}
+
+	/* ESTANTES */
+	.estantes {
+		padding: 3rem 0;
+		background-color: var(--crema-oscura);
+	}
+
+	.libro-fila {
+		display: grid;
+		grid-template-columns: 260px 1fr;
+		gap: 3rem;
+		align-items: center;
+		padding: 3rem 0;
+		border-bottom: 1px solid var(--linea);
+	}
+
+	.libro-fila--invertida {
+		grid-template-columns: 1fr 260px;
+	}
+
+	.libro-fila--invertida .libro-portada-wrap {
+		order: 2;
+	}
+
+	.libro-fila--invertida .libro-info {
+		order: 1;
+		text-align: right;
+		align-items: flex-end;
+	}
+
+	/* IMAGEN */
+	.libro-portada-wrap {
+		display: flex;
+		justify-content: center;
+	}
+
+	.libro-imagen-marco {
+		box-shadow:
+			8px 8px 0 var(--crema-oscura),
+			12px 12px 20px var(--sombra);
+		transition: 0.3s;
+	}
+
+	.libro-fila:hover .libro-imagen-marco {
+		transform: translateY(-5px);
+	}
+
+	.libro-imagen {
+		width: 180px;
+		height: 260px;
+		object-fit: cover;
+	}
+
+	/* INFO */
+	.libro-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.libro-categoria {
+		font-size: 0.7rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--ocre);
+	}
+
+	.libro-titulo {
+		font-size: 2rem;
+		font-style: italic;
+		margin: 0;
+	}
+
+	.libro-separador {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		max-width: 200px;
+	}
+
+	.libro-separador-linea {
+		flex: 1;
+		height: 1px;
+		background: var(--linea);
+	}
+
+	.libro-descripcion {
+		line-height: 1.8;
+		max-width: 420px;
+	}
+
+	.libro-enlace {
+		text-decoration: none;
+		font-size: 0.75rem;
+		letter-spacing: 0.2em;
+		display: inline-flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.img-amazon {
+		width: 50px;
+	}
+
+	.libro-enlace:hover {
+		color: var(--ocre);
+	}
+
+	/* FOOTER */
+	.biblioteca-footer {
+		padding: 2rem 0;
+		text-align: center;
+	}
+
+	.footer-ornamento {
+		font-style: italic;
+	}
+
+	/* RESPONSIVE */
+	@media (max-width: 768px) {
+		.cabecera-libros {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.cabecera-libros p {
+			text-align: center;
+		}
+
+		.libro-fila,
+		.libro-fila--invertida {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.libro-info {
+			align-items: center;
+		}
+
+		.libro-fila--invertida .libro-info {
+			align-items: center;
+			text-align: center;
+		}
+	}
+</style>

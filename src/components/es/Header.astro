@@ -22,6 +22,10 @@
             <div class="element-menu">Dibujos</div>
         </a>
 
+        <a href="/es/juegos">
+            <div class="element-menu">Juegos</div>
+        </a>
+
         <a href="/es/contacto">
             <div class="element-menu">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -31,12 +35,12 @@
             </div>
         </a>
 
-        <a href="/es" class="lang-btn" aria-label="Español">
-            <img src="/img/es.jpg" />
-        </a>
-
         <a href="/val" class="lang-btn" aria-label="Valencià">
             <img src="/img/val.jpg" />
+        </a>
+
+        <a href="/es" class="lang-btn" aria-label="Español">
+            <img src="/img/es.jpg" />
         </a>
     </nav>
 </header>
@@ -51,11 +55,15 @@
     }
 
     .menu {
-        margin: 0;
-        padding: 0.5rem 0;
         display: flex;
-        gap: 0.1rem; /* más espacio entre iconos */
-        justify-content: center;
+        gap: 0.3rem;
+        overflow-x: auto; /* 👈 scroll horizontal */
+        white-space: nowrap;
+        padding: 0.5rem;
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none; /* opcional, más limpio */
     }
 
     .menu a {
