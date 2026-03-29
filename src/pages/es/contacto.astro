@@ -149,10 +149,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 				</aside>
 			</div>
 		</main>
-
-		<aside class="firma-lateral" aria-hidden="true">
-			<span class="firma-texto">palabras · ideas · conversación</span>
-		</aside>
 	</div>
 </BaseLayout>
 
@@ -179,7 +175,11 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 
 	.contacto-wrapper {
 		background-color: var(--crema);
-		min-height: 100vh;
+		display: flex;
+		align-items: center; /* antes tenías 'top', que no existe */
+		justify-content: flex-start; /* opcional si quieres que empiece desde la izquierda */
+		min-height: 90vh;
+		width: 100vw;
 		font-family: "Jost", sans-serif;
 		color: var(--carbon);
 		position: relative;

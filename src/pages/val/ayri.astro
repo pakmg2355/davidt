@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-import libros from "../../data/libros.json";
+import libros from "../../data/ayri.json";
 ---
 
 <BaseLayout title="Biblioteca">
@@ -10,19 +10,14 @@ import libros from "../../data/libros.json";
 				<div class="cabecera-libros">
 					<div class="foto-marco-interior">
 						<img
-							src="/img/logo_jlurbook.jpg"
+							src="/img/logo_ayri.jpg"
 							alt="Logo jlurbook"
 							class="logo-foto"
 							loading="eager"
 						/>
 					</div>
 
-					<p>
-						Benvingut a la meva Biblioteca. Explora un espai dedicat
-						a la lectura i al descobriment. Aquí trobaràs una
-						selecció de llibres que reflecteixen la meva passió per
-						les històries, el pensament i la creativitat.
-					</p>
+					<p>Benvingur a la pàgina de Ayri</p>
 				</div>
 			</div>
 		</header>
@@ -38,9 +33,9 @@ import libros from "../../data/libros.json";
 								<div class="libro-imagen-marco">
 									<img
 										class="libro-imagen"
-										src={libro.imagen_es}
+										src={libro.imagen_val}
 										loading="lazy"
-										alt={libro.titulo_es}
+										alt={libro.titulo_val}
 									/>
 								</div>
 							</div>
@@ -49,7 +44,7 @@ import libros from "../../data/libros.json";
 								<div class="libro-categoria">
 									Lectura recomadada
 								</div>
-								<h2 class="libro-titulo">{libro.titulo_es}</h2>
+								<h2 class="libro-titulo">{libro.titulo_val}</h2>
 
 								<div class="libro-separador">
 									<span class="libro-separador-linea" />
@@ -58,20 +53,20 @@ import libros from "../../data/libros.json";
 								</div>
 
 								<p class="libro-descripcion">
-									{libro.descripcion_es}
+									{libro.descripcion_val}
 								</p>
 
 								<a
 									class="libro-enlace"
 									target="_blank"
-									href={libro.amazon_es}
+									href={libro.amazon_val}
 									rel="noopener noreferrer"
 								>
 									<img
 										class="img-amazon"
 										src="/img/amazon.png"
 									/>
-									<span>Encontrar en Amazon</span>
+									<span>Trobar a Amazon</span>
 									<span class="enlace-flecha">→</span>
 								</a>
 							</div>

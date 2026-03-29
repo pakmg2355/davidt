@@ -10,7 +10,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 		<main class="contacto-contenido">
 			<div class="contacto-cabecera">
-				<p class="contacto-etiqueta">Escriu-me</p>
+				<p class="contacto-etiqueta">Escriume</p>
 				<h1 class="contacto-titulo">Contacte</h1>
 				<div class="contacto-divisor">
 					<span class="divisor-ala"></span>
@@ -36,9 +36,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 					<div class="campo-grupo campo-grupo--mitad">
 						<div class="campo">
-							<label class="campo-label" for="nombre"
-								>Nombre</label
-							>
+							<label class="campo-label" for="nombre">Nom</label>
 							<input
 								class="campo-input"
 								type="text"
@@ -68,7 +66,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							type="text"
 							id="asunto"
 							name="asunto"
-							placeholder="Motiu del missatge"
+							placeholder="Motivo del mensaje"
 						/>
 					</div>
 
@@ -79,7 +77,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							class="campo-input campo-textarea"
 							id="mensaje"
 							name="mensaje"
-							placeholder="Escriu el teu missatge..."
+							placeholder="Escribe tu mensaje aquí..."
 							required></textarea>
 					</div>
 
@@ -101,7 +99,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 					<div class="lateral-bloque">
 						<p class="lateral-label">Email</p>
 						<a class="lateral-valor" href="mailto:hola@ejemplo.com"
-							>hola@ejemplo.com</a
+							>hola@exemple.com</a
 						>
 					</div>
 
@@ -136,7 +134,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 					<div class="lateral-bloque">
 						<p class="lateral-label">Temps de resposta</p>
 						<p class="lateral-valor lateral-valor--normal">
-							Habitualment en menys de 48 hores
+							Habitualment menys de 48 hores
 						</p>
 					</div>
 
@@ -149,10 +147,6 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 				</aside>
 			</div>
 		</main>
-
-		<aside class="firma-lateral" aria-hidden="true">
-			<span class="firma-texto">paraules · idees · conversació</span>
-		</aside>
 	</div>
 </BaseLayout>
 
@@ -179,7 +173,11 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 	.contacto-wrapper {
 		background-color: var(--crema);
-		min-height: 100vh;
+		display: flex;
+		align-items: center; /* antes tenías 'top', que no existe */
+		justify-content: flex-start; /* opcional si quieres que empiece desde la izquierda */
+		min-height: 90vh;
+		width: 100vw;
 		font-family: "Jost", sans-serif;
 		color: var(--carbon);
 		position: relative;

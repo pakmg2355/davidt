@@ -1,0 +1,12 @@
+[
+    {
+        "titulo_es": "Libro Uno Airy",
+        "titulo_val": "Libro Uno val",
+        "descripcion_es": "Descripción del primer libro de Ayri.",
+        "descripcion_val": "Descripción del primer libro de Ayri en val.",
+        "imagen_es": "/libros/libro1.jpg",
+        "imagen_val": "/libros/libro1.jpg",
+        "amazon_es": "https://www.amazon.es/libro1",
+        "amazon_val": "https://www.amazon.es/libro1val"
+    }
+]

@@ -14,7 +14,7 @@ import bio from "../../data/bio.json";
                 <div class="foto-marco-exterior">
                     <div class="foto-marco-interior">
                         <img
-                            src="/img/davidt.jpg"
+                            src="/img/foto_david1.jpg"
                             alt="Fotografía del autor"
                             class="autor-foto"
                             loading="eager"
@@ -32,15 +32,14 @@ import bio from "../../data/bio.json";
                 {
                     bio.map((b) => (
                         <>
-                            <p class="autor-etiqueta">Autor</p>
-                            <h1 class="autor-nombre">{b.titulo_es}</h1>
+                            <h1 class="autor-nombre">{b.titulo_val}</h1>
                             <div class="autor-divisor">
                                 <span class="divisor-ala" />
                                 <span class="divisor-simbolo">❧</span>
                                 <span class="divisor-ala" />
                             </div>
                             <div class="autor-bio">
-                                {b.bio_es
+                                {b.bio_val
                                     .split("\n")
                                     .map((parrafo: string) =>
                                         parrafo.trim() ? (
@@ -51,19 +50,22 @@ import bio from "../../data/bio.json";
                         </>
                     ))
                 }
-
+            </div>
+            <div class="contenedor-links-bio">
                 <div class="autor-cta">
-                    <a href="/es/libros" class="cta-btn">
-                        <span class="cta-texto">Ver mis libros</span>
+                    <a href="/val/ayri" class="cta-btn">
+                        <span class="cta-texto"> Jlurbook </span>
+                        <span class="cta-flecha">→</span>
+                    </a>
+                </div>
+                <div class="autor-cta">
+                    <a href="/val/ayri" class="cta-btn">
+                        <span class="cta-texto"> Ayri </span>
                         <span class="cta-flecha">→</span>
                     </a>
                 </div>
             </div>
         </main>
-
-        <aside class="firma-lateral" aria-hidden="true">
-            <span class="firma-texto">escritor · pensador · autor</span>
-        </aside>
     </div>
 </BaseLayout>
 
@@ -90,12 +92,13 @@ import bio from "../../data/bio.json";
 
     .autor-wrapper {
         background-color: var(--crema);
-        min-height: 100vh;
-        width: 80vw;
+        display: flex;
+        align-items: center; /* antes tenías 'top', que no existe */
+        justify-content: flex-start; /* opcional si quieres que empiece desde la izquierda */
+        min-height: 90vh;
+        width: 100vw;
         font-family: "Jost", sans-serif;
         color: var(--carbon);
-        display: flex;
-        align-items: stretch;
         position: relative;
         overflow: hidden;
     }
@@ -133,7 +136,7 @@ import bio from "../../data/bio.json";
         width: 100%;
         max-width: 1100px;
         margin: 0 auto;
-        padding: 5rem 3rem;
+        padding: 5rem 5rem;
         align-items: center;
     }
 
@@ -210,7 +213,7 @@ import bio from "../../data/bio.json";
     }
 
     .autor-etiqueta {
-        font-size: 0.65rem;
+        font-size: 1rem;
         font-weight: 400;
         letter-spacing: 0.4em;
         text-transform: uppercase;
@@ -256,7 +259,7 @@ import bio from "../../data/bio.json";
     }
 
     .autor-bio p {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         font-weight: 300;
         line-height: 1.9;
         color: var(--tinta);
@@ -321,13 +324,10 @@ import bio from "../../data/bio.json";
         z-index: 2;
     }
 
-    .firma-texto {
-        font-size: 0.6rem;
-        font-weight: 300;
-        letter-spacing: 0.4em;
-        text-transform: uppercase;
-        color: var(--linea);
-        white-space: nowrap;
+    .contenedor-links-bio {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
     }
 
     /* RESPONSIVE */

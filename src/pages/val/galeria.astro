@@ -1,12 +1,30 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-type AstroImage = { default: { src: string } };
+
 const imagenes = Object.values(
-    import.meta.glob<AstroImage>("/src/assets/dibujos/*.jpg", { eager: true }),
+    import.meta.glob<{ default: ImageMetadata }>("/src/assets/dibujos/*.jpg", {
+        eager: true,
+    }),
 );
 ---
 
 <BaseLayout title="Dibujos">
+    <header class="biblioteca-header">
+        <div class="contenedor">
+            <div class="cabecera-libros">
+                <div class="foto-marco-interior">
+                    <img
+                        src="/img/logo_galeria.jpg"
+                        alt="Logo galeria"
+                        class="logo-foto"
+                        loading="eager"
+                    />
+                </div>
+
+                <p>Benvinguts a la meua galería de dibuixos fets a llapis.</p>
+            </div>
+        </div>
+    </header>
     <section class="galeria">
         {
             imagenes.map((img) => (
@@ -21,12 +39,76 @@ const imagenes = Object.values(
 </BaseLayout>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Jost", sans-serif;
+        background: var(--crema);
+    }
+
+    /* 🔥 CONTENEDOR CENTRAL (CLAVE) */
+    .contenedor {
+        margin: 0;
+    }
+
+    :root {
+        --crema: #fdf6ee;
+        --crema-oscura: #f0e6d2;
+        --ocre: #b8860b;
+        --ocre-claro: #d4a520;
+        --carbon: #1a1714;
+        --tinta: #3d3830;
+        --linea: #c9bfa8;
+        --sombra: rgba(0, 0, 0, 0.08);
+    }
+
+    /* HEADER */
+    .biblioteca-header {
+        background: linear-gradient(180deg, var(--crema-oscura), var(--crema));
+        border-bottom: 1px solid var(--linea);
+        align-items: center;
+    }
+
+    .cabecera-libros {
+        padding: 10px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .cabecera-libros p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.25rem;
+        line-height: 1.6;
+        max-width: 500px;
+        text-align: right;
+        margin: 0;
+    }
+
+    .logo-foto {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 25px var(--sombra);
+        transition: 0.3s;
+    }
+
+    .logo-foto:hover {
+        transform: scale(1.05);
+    }
+
     .galeria {
         display: flex;
         flex-direction: column;
         gap: 16px;
-        padding: 20px;
         align-items: center;
+        padding: 3rem 0;
+        background-color: var(--crema-oscura);
     }
 
     .imagen {

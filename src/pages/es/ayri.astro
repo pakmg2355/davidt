@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-import libros from "../../data/libros.json";
+import libros from "../../data/ayri.json";
 ---
 
 <BaseLayout title="Biblioteca">
@@ -10,19 +10,14 @@ import libros from "../../data/libros.json";
 				<div class="cabecera-libros">
 					<div class="foto-marco-interior">
 						<img
-							src="/img/logo_jlurbook.jpg"
+							src="/img/logo_ayri.jpg"
 							alt="Logo jlurbook"
 							class="logo-foto"
 							loading="eager"
 						/>
 					</div>
 
-					<p>
-						Benvingut a la meva Biblioteca. Explora un espai dedicat
-						a la lectura i al descobriment. Aquí trobaràs una
-						selecció de llibres que reflecteixen la meva passió per
-						les històries, el pensament i la creativitat.
-					</p>
+					<p>Bienbenido a la página de Ayri</p>
 				</div>
 			</div>
 		</header>
@@ -47,7 +42,7 @@ import libros from "../../data/libros.json";
 
 							<div class="libro-info">
 								<div class="libro-categoria">
-									Lectura recomadada
+									Lectura recomendada
 								</div>
 								<h2 class="libro-titulo">{libro.titulo_es}</h2>
 
@@ -215,7 +210,7 @@ import libros from "../../data/libros.json";
 	}
 
 	.libro-categoria {
-		font-size: 0.7rem;
+		font-size: 1.5rem;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--ocre);
