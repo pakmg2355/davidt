@@ -30,23 +30,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		<section class="estantes">
 			<div class="contenedor">
 				<article class="libro-fila">
-					<div class="libro-portada-wrap">
-						<div class="libro-imagen-marco">
-							<img
-								class="libro-imagen"
-								src="/img/letraslocas/01poartada.jpg"
-								loading="lazy"
-								alt="Letras locas"
-							/>
-							<img
-								class="libro-imagen"
-								src="/img/letraslocas/10contraportada.jpg"
-								loading="lazy"
-								alt="Letras locas"
-							/>
-						</div>
-					</div>
-
 					<div class="libro-info">
 						<div class="libro-categoria">Juego</div>
 						<h2 class="libro-titulo">Letras Locas</h2>
@@ -74,6 +57,18 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 							Y ahí es donde empieza lo bueno, cuando nadie se lo
 							toma demasiado en serio.
 						</p>
+
+						<div class="libro-portada-wrap">
+							<div class="libro-imagen-marco">
+								<img
+									class="libro-imagen"
+									src="/img/letraslocas/01poartada.jpg"
+									loading="lazy"
+									alt="Letras locas"
+								/>
+							</div>
+						</div>
+
 						<p class="libro-descripcion">
 							“Letras locas” es ese tipo de juego en el que se
 							mezclan risas, prisas y respuestas que luego nadie
@@ -86,6 +81,17 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 							vacaciones. Solo dejar que las ideas salgan, aunque
 							a veces no tengan mucho sentido.
 						</p>
+
+						<div class="libro-portada-wrap">
+							<div class="libro-imagen-marco">
+								<img
+									class="libro-imagen"
+									src="/img/letraslocas/10contraportada.jpg"
+									loading="lazy"
+									alt="Letras locas"
+								/>
+							</div>
+						</div>
 
 						<p class="libro-descripcion">
 							Y cuando parece que ya está… alguien dice: “otra
@@ -122,8 +128,11 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 						data-netlify="true"
 					>
 						<label class="formulario-label"
-							>Escribe tu correo aquí para recibir una plantilla
-							gratis</label
+							>Déjame tu correo y recibirás una plantilla gratuita
+							del juego. Es solo es un adelanto... lo
+							verdaderamente especial te espera dentro: más
+							plantillas, un diploma final y pequeñas sorpresas en
+							cada página.</label
 						>
 						<input
 							class="formulario-input"
@@ -208,7 +217,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 
 	.cabecera-libros p {
 		line-height: 1.6;
-		max-width: 500px;
+
 		text-align: right;
 		margin: 0;
 	}
@@ -283,6 +292,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.libro-imagen {
+		padding: 20px;
 		width: 100%;
 		object-fit: cover;
 	}
@@ -299,11 +309,13 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--ocre);
+		padding-left: 20px;
 	}
 
 	.libro-titulo {
 		font-style: italic;
 		margin: 0;
+		padding-left: 20px;
 	}
 
 	.libro-descripcion {
@@ -345,6 +357,12 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		.libro-info {
 			align-items: center;
 			text-align: justify;
+		}
+
+		.libro-imagen {
+			padding: 0px;
+			width: 100%;
+			object-fit: cover;
 		}
 
 		.libro-fila--invertida .libro-info {

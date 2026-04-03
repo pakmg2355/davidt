@@ -30,23 +30,6 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 		<section class="estantes">
 			<div class="contenedor">
 				<article class="libro-fila">
-					<div class="libro-portada-wrap">
-						<div class="libro-imagen-marco">
-							<img
-								class="libro-imagen"
-								src="/img/letraslocas/01poartada.jpg"
-								loading="lazy"
-								alt="¿Dónde está mi abuela?"
-							/>
-							<img
-								class="libro-imagen"
-								src="/img/letraslocas/10contraportada.jpg"
-								loading="lazy"
-								alt="¿Dónde está mi abuela?"
-							/>
-						</div>
-					</div>
-
 					<div class="libro-info">
 						<div class="libro-categoria">Joc</div>
 						<h2 class="libro-titulo">Lletres Boges</h2>
@@ -61,6 +44,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							Comença fàcil. Una lletra. Una categoria. Tothom
 							confiat.
 						</p>
+
 						<p class="libro-descripcion">
 							Fins que algú s'inventa una paraula amb tota la
 							seguretat del món. Hi ha qui es queda en blanc just
@@ -74,6 +58,18 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							I ací és on comença el bo, quan ningú s'ho pren
 							massa de debò.
 						</p>
+
+						<div class="libro-portada-wrap">
+							<div class="libro-imagen-marco">
+								<img
+									class="libro-imagen"
+									src="/img/letraslocas/01poartada.jpg"
+									loading="lazy"
+									alt="Letras locas"
+								/>
+							</div>
+						</div>
+
 						<p class="libro-descripcion">
 							“Lletres boges” és eixe tipus de joc en el qual es
 							mesclen riures, presses i respostes que després
@@ -86,6 +82,17 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							vacacions. Només deixar que les idees isquen, encara
 							que a vegades no tinguen molt sentit.
 						</p>
+
+						<div class="libro-portada-wrap">
+							<div class="libro-imagen-marco">
+								<img
+									class="libro-imagen"
+									src="/img/letraslocas/10contraportada.jpg"
+									loading="lazy"
+									alt="Letras locas"
+								/>
+							</div>
+						</div>
 
 						<p class="libro-descripcion">
 							I quan sembla que ja està… algú diu: “una altra
@@ -106,12 +113,13 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						</p>
 					</div>
 				</article>
+				<hr />
 				<article class="libro-columna">
 					<img
 						class="libro-imagen"
 						src="/img/letraslocas/05plantilla3.jpg"
 						loading="lazy"
-						alt="¿Dónde está mi abuela?"
+						alt="Letras locas"
 					/>
 
 					<form
@@ -121,8 +129,11 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						data-netlify="true"
 					>
 						<label class="formulario-label"
-							>Escriu el teu correu ací per a rebre una plantilla
-							gratis</label
+							>Deixa'm el teu correu i rebràs una plantilla
+							gratuïta del joc. És només és un avançament... el
+							verdaderament especial t'espera dins: més
+							plantilles, un diploma final i xicotetes sorpreses
+							en cada pàgina.</label
 						>
 						<input
 							class="formulario-input"
@@ -133,7 +144,6 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							>ENVIAR PLANTILLA</button
 						>
 						<strong>Joc encara no disponible</strong>
-
 						<a
 							class="libro-enlace"
 							target="_blank"
@@ -141,7 +151,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							rel="noopener noreferrer"
 						>
 							<img class="img-amazon" src="/img/amazon.png" />
-							<span>Trobar en Amazon</span>
+							<span>Trobar a Amazon</span>
 							<span class="enlace-flecha">→</span>
 						</a>
 					</form>
@@ -208,7 +218,6 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 	.cabecera-libros p {
 		line-height: 1.6;
-		max-width: 500px;
 		text-align: right;
 		margin: 0;
 	}
@@ -283,6 +292,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 	}
 
 	.libro-imagen {
+		padding: 20px;
 		width: 100%;
 		object-fit: cover;
 	}
@@ -299,11 +309,13 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--ocre);
+		padding-left: 20px;
 	}
 
 	.libro-titulo {
 		font-style: italic;
 		margin: 0;
+		padding-left: 20px;
 	}
 
 	.libro-descripcion {
@@ -345,6 +357,12 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 		.libro-info {
 			align-items: center;
 			text-align: justify;
+		}
+
+		.libro-imagen {
+			padding: 0px;
+			width: 100%;
+			object-fit: cover;
 		}
 
 		.libro-fila--invertida .libro-info {

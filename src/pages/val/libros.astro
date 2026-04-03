@@ -15,19 +15,21 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							loading="eager"
 						/>
 					</div>
-
-					<p>
-						Benvingut a la meva biblioteca. Un lloc per llegir sense
-						presses. Aquí trobaràs històries escrites des de la meva
-						manera de veure la vida, que reflecteixen com entenc el
-						món.
-					</p>
+					<div class="texto-cabecera">
+						<p>Benvingut a la meva biblioteca.</p>
+						<p>Un lloc per llegir sense presses.</p>
+						<p>
+							Açí trobaràs històries escrites des de la meva
+							manera de veure la vida, que reflecteixen com entenc
+							el món.
+						</p>
+					</div>
 				</div>
 			</div>
 		</header>
 
 		<section class="estantes">
-			<div class="">
+			<div class="contenedor">
 				<article class="libro-fila">
 					<div class="libro-portada-wrap">
 						<div class="libro-imagen-marco">
@@ -55,7 +57,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 							guardaven l'aroma d'un instant irrepetible?
 						</p>
 						<p class="libro-descripcion">
-							Quan els carrers eren salons oberts on els veïns i
+							Quan els carrers eren salons oberts, on els veïns i
 							els riures es compartien sense presses?
 						</p>
 						<p class="libro-descripcion">
@@ -163,7 +165,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 	.cabecera-libros {
 		padding: 0px;
 		display: flex;
-		width: 100%;
+		width: 100vw;
 		align-items: center;
 		justify-content: space-between;
 		padding: 15px;
@@ -171,7 +173,6 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 	.cabecera-libros p {
 		line-height: 1.6;
-		max-width: 500px;
 		text-align: right;
 		margin: 0;
 	}
@@ -274,6 +275,14 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 		background: linear-gradient(180deg, var(--crema), var(--crema-oscura));
 		border-bottom: 1px solid var(--linea);
 		align-items: center;
+		padding: 20px;
+	}
+
+	.footer-ornamento {
+		font-style: italic;
+	}
+
+	.info-libro {
 		padding: 20px;
 	}
 
