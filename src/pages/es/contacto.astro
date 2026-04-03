@@ -24,149 +24,120 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 				</p>
 			</div>
 
-			<div class="contacto-cuerpo">
-				<form
-					class="contacto-form"
-					name="contacto"
-					method="POST"
-					data-netlify="true"
-				>
-					<input type="hidden" name="form-name" value="contacto" />
-					<input type="text" name="bot-field" style="display:none" />
+			<form
+				class="contacto-form contacto-cuerpo"
+				name="contacto"
+				method="POST"
+				data-netlify="true"
+			>
+				<input type="hidden" name="form-name" value="contacto" />
+				<input type="text" name="bot-field" style="display:none" />
 
-					<div class="campo-grupo campo-grupo--mitad">
-						<div class="campo">
-							<label class="campo-label" for="nombre"
-								>Nombre</label
-							>
-							<input
-								class="campo-input"
-								type="text"
-								id="nombre"
-								name="nombre"
-								placeholder="Tu nombre"
-								required
-							/>
-						</div>
-						<div class="campo">
-							<label class="campo-label" for="email">Email</label>
-							<input
-								class="campo-input"
-								type="email"
-								id="email"
-								name="email"
-								placeholder="tu@email.com"
-								required
-							/>
-						</div>
-					</div>
-
+				<div class="campo-grupo campo-grupo--mitad">
 					<div class="campo">
-						<label class="campo-label" for="asunto">Asunto</label>
+						<label class="campo-label" for="nombre">Nombre</label>
 						<input
 							class="campo-input"
 							type="text"
-							id="asunto"
-							name="asunto"
-							placeholder="Motivo del mensaje"
+							id="nombre"
+							name="nombre"
+							placeholder="Tu nombre"
+							required
 						/>
 					</div>
-
 					<div class="campo">
-						<label class="campo-label" for="mensaje">Mensaje</label>
-						<textarea
-							class="campo-input campo-textarea"
-							id="mensaje"
-							name="mensaje"
-							placeholder="Escribe tu mensaje aquí..."
-							required></textarea>
+						<label class="campo-label" for="email">Email</label>
+						<input
+							class="campo-input"
+							type="email"
+							id="email"
+							name="email"
+							placeholder="tu@email.com"
+							required
+						/>
 					</div>
+				</div>
 
-					<div class="form-pie">
-						<button class="form-btn" type="submit">
-							<span class="btn-texto">Enviar mensaje</span>
-							<span class="btn-flecha">→</span>
-						</button>
-					</div>
-				</form>
+				<div class="campo">
+					<label class="campo-label" for="asunto">Asunto</label>
+					<input
+						class="campo-input"
+						type="text"
+						id="asunto"
+						name="asunto"
+						placeholder="Motivo del mensaje"
+					/>
+				</div>
 
-				<aside class="contacto-lateral">
-					<div class="lateral-ornamento">
-						<span class="lat-linea"></span>
-						<span class="lat-rombo">◆</span>
-						<span class="lat-linea"></span>
-					</div>
+				<div class="campo">
+					<label class="campo-label" for="mensaje">Mensaje</label>
+					<textarea
+						class="campo-input campo-textarea"
+						id="mensaje"
+						name="mensaje"
+						placeholder="Escribe tu mensaje aquí..."
+						required></textarea>
+				</div>
 
-					<div class="lateral-bloque">
-						<p class="lateral-label">Email</p>
-						<a class="lateral-valor" href="mailto:hola@ejemplo.com"
-							>hola@ejemplo.com</a
+				<div class="form-pie">
+					<button class="form-btn" type="submit">
+						<span class="btn-texto">Enviar mensaje</span>
+						<span class="btn-flecha">→</span>
+					</button>
+				</div>
+			</form>
+
+			<aside class="contacto-lateral">
+				<div class="lateral-ornamento">
+					<span class="lat-linea"></span>
+					<span class="lat-rombo">◆</span>
+					<span class="lat-linea"></span>
+				</div>
+
+				<div class="lateral-bloque">
+					<p class="lateral-label">Email</p>
+					<a class="lateral-valor" href="mailto:hola@ejemplo.com"
+						>hola@ejemplo.com</a
+					>
+				</div>
+
+				<div class="lateral-separador"></div>
+
+				<div class="lateral-bloque">
+					<p class="lateral-label">Redes</p>
+					<div class="lateral-redes">
+						<a
+							class="lateral-red"
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer">Instagram</a
+						>
+						<a
+							class="lateral-red"
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer">Twitter / X</a
+						>
+						<a
+							class="lateral-red"
+							href="#"
+							target="_blank"
+							rel="noopener noreferrer">LinkedIn</a
 						>
 					</div>
+				</div>
 
-					<div class="lateral-separador"></div>
-
-					<div class="lateral-bloque">
-						<p class="lateral-label">Redes</p>
-						<div class="lateral-redes">
-							<a
-								class="lateral-red"
-								href="#"
-								target="_blank"
-								rel="noopener noreferrer">Instagram</a
-							>
-							<a
-								class="lateral-red"
-								href="#"
-								target="_blank"
-								rel="noopener noreferrer">Twitter / X</a
-							>
-							<a
-								class="lateral-red"
-								href="#"
-								target="_blank"
-								rel="noopener noreferrer">LinkedIn</a
-							>
-						</div>
-					</div>
-
-					<div class="lateral-separador"></div>
-
-					<div class="lateral-bloque">
-						<p class="lateral-label">Tiempo de respuesta</p>
-						<p class="lateral-valor lateral-valor--normal">
-							Habitualmente en menos de 48 horas
-						</p>
-					</div>
-
-					<div class="lateral-cita">
-						<span class="cita-comilla">"</span>
-						<p class="cita-texto">
-							Toda gran conversación empieza con un primer
-							mensaje.
-						</p>
-					</div>
-				</aside>
-			</div>
+				<div class="lateral-cita">
+					<p class="cita-texto">
+						Toda gran conversación empieza con un primer mensaje.
+					</p>
+				</div>
+			</aside>
 		</main>
 	</div>
 </BaseLayout>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap");
-
-	:root {
-		--crema: #f5f0e8;
-		--crema-oscura: #ede6d4;
-		--ocre: #b8860b;
-		--ocre-claro: #d4a520;
-		--carbon: #1a1714;
-		--tinta: #3d3830;
-		--tinta-suave: #6b6358;
-		--linea: #c9bfa8;
-		--blanco: #fdfaf4;
-	}
-
 	* {
 		box-sizing: border-box;
 		margin: 0;
@@ -183,28 +154,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		color: var(--carbon);
 		position: relative;
 		overflow: hidden;
-	}
-
-	/* LETRA DE FONDO */
-	.fondo-decorativo {
-		position: absolute;
-		inset: 0;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		pointer-events: none;
-		z-index: 0;
-		overflow: hidden;
-	}
-
-	.fondo-letra {
-		font-size: clamp(18rem, 40vw, 55rem);
-		font-weight: 300;
-		color: var(--crema-oscura);
-		line-height: 1;
-		user-select: none;
-		margin-left: -4rem;
-		opacity: 0.7;
 	}
 
 	/* CONTENIDO */
@@ -229,8 +178,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.contacto-etiqueta {
-		font-size: 0.65rem;
-		font-weight: 400;
 		letter-spacing: 0.4em;
 		text-transform: uppercase;
 		color: var(--ocre);
@@ -238,8 +185,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.contacto-titulo {
-		font-size: clamp(3rem, 7vw, 5.5rem);
-		font-weight: 300;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--carbon);
@@ -262,14 +207,11 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.divisor-simbolo {
-		font-size: 1.1rem;
 		color: var(--ocre);
 		line-height: 1;
 	}
 
 	.contacto-descripcion {
-		font-size: 0.95rem;
-		font-weight: 300;
 		line-height: 1.9;
 		color: var(--tinta-suave);
 		max-width: 500px;
@@ -305,8 +247,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.campo-label {
-		font-size: 0.62rem;
-		font-weight: 500;
 		letter-spacing: 0.3em;
 		text-transform: uppercase;
 		color: var(--tinta-suave);
@@ -317,8 +257,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		border: none;
 		border-bottom: 1px solid var(--linea);
 		padding: 0.6rem 0;
-		font-size: 0.95rem;
-		font-weight: 300;
+
 		color: var(--carbon);
 		width: 100%;
 		outline: none;
@@ -329,7 +268,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 
 	.campo-input::placeholder {
 		color: var(--linea);
-		font-weight: 300;
 	}
 
 	.campo-input:focus {
@@ -357,8 +295,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		color: var(--blanco);
 		border: none;
 		padding: 0.9rem 2.2rem;
-		font-size: 0.7rem;
-		font-weight: 500;
+
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
 		cursor: pointer;
@@ -414,7 +351,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.lat-rombo {
-		font-size: 0.35rem;
 		color: var(--ocre);
 	}
 
@@ -426,16 +362,12 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.lateral-label {
-		font-size: 0.6rem;
-		font-weight: 500;
 		letter-spacing: 0.3em;
 		text-transform: uppercase;
 		color: var(--ocre);
 	}
 
 	.lateral-valor {
-		font-size: 0.88rem;
-		font-weight: 300;
 		color: var(--carbon);
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
@@ -452,7 +384,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 
 	.lateral-valor--normal {
 		color: var(--tinta-suave);
-		font-size: 0.82rem;
 		line-height: 1.6;
 	}
 
@@ -463,8 +394,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.lateral-red {
-		font-size: 0.85rem;
-		font-weight: 300;
 		color: var(--tinta);
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
@@ -493,8 +422,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.cita-comilla {
-		font-size: 4rem;
-		font-weight: 300;
 		color: var(--linea);
 		line-height: 0.5;
 		display: block;
@@ -502,28 +429,16 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 	}
 
 	.cita-texto {
-		font-size: 1.1rem;
 		font-style: italic;
-		font-weight: 300;
+
 		color: var(--tinta-suave);
 		line-height: 1.6;
 	}
 
-	/* FIRMA LATERAL VERTICAL */
-	.firma-lateral {
-		position: fixed;
-		right: 1.5rem;
-		top: 50%;
-		transform: translateY(-50%) rotate(90deg);
-		transform-origin: center center;
-		z-index: 2;
-	}
-
 	.firma-texto {
-		font-size: 0.6rem;
-		font-weight: 300;
 		letter-spacing: 0.4em;
 		text-transform: uppercase;
+		text-align: justify;
 		color: var(--linea);
 		white-space: nowrap;
 	}
@@ -545,15 +460,6 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 			border-left: none;
 			border-top: 1px solid var(--linea);
 			padding-top: 2rem;
-		}
-
-		.firma-lateral {
-			display: none;
-		}
-
-		.fondo-letra {
-			font-size: 65vw;
-			margin-left: -3rem;
 		}
 	}
 

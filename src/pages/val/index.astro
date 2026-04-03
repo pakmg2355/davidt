@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-import bio from "../../data/bio.json";
 ---
 
 <BaseLayout title="Inici">
@@ -29,7 +28,7 @@ import bio from "../../data/bio.json";
             </div>
 
             <div class="autor-texto-zona">
-                <h1 class="autor-nombre">L'AUTOR</h1>
+                <h1 class="autor-nombre">Sobre mi</h1>
                 <div class="autor-divisor">
                     <span class="divisor-ala"></span>
                     <span class="divisor-simbolo">❧</span>
@@ -59,12 +58,13 @@ import bio from "../../data/bio.json";
                     </p><p>
                         Intente acostar una mica més aquests dos mons, per
                         aprendre, i perquè he comprés que no hem de perdre
-                        aquella manera de veure la vida. Quasi sense adonar-me'n
-                        vaig començar a dibuixar, després van arribar les
-                        històries, i després els jocs: petites excuses per
-                        compartir temps de veritat, perquè els xiquets imaginen
-                        sense límits i perquè els adults recorden que una vegada
-                        també ho van fer.
+                        aquella manera de veure la vida.
+                    </p><p>
+                        Quasi sense adonar-me'n vaig començar a dibuixar,
+                        després van arribar les històries, i després els jocs:
+                        petites excuses per compartir temps de veritat, perquè
+                        els xiquets imaginen sense límits i perquè els adults
+                        recorden que una vegada també ho van fer.
                     </p><p>
                         La meua filla és el motor de tot aquest univers. Per a
                         ella vaig començar a dibuixar en plena pandèmia,
@@ -94,14 +94,8 @@ import bio from "../../data/bio.json";
             </div>
             <div class="contenedor-links-bio">
                 <div class="autor-cta">
-                    <a href="/val/ayri" class="cta-btn">
+                    <a href="/val/libros" class="cta-btn">
                         <span class="cta-texto"> Jlurbook </span>
-                        <span class="cta-flecha">→</span>
-                    </a>
-                </div>
-                <div class="autor-cta">
-                    <a href="/val/ayri" class="cta-btn">
-                        <span class="cta-texto"> Ayri </span>
                         <span class="cta-flecha">→</span>
                     </a>
                 </div>
@@ -111,26 +105,6 @@ import bio from "../../data/bio.json";
 </BaseLayout>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap");
-
-    :root {
-        --crema: #f5f0e8;
-        --crema-oscura: #ede6d4;
-        --ocre: #b8860b;
-        --ocre-claro: #d4a520;
-        --carbon: #1a1714;
-        --tinta: #3d3830;
-        --tinta-suave: #6b6358;
-        --linea: #c9bfa8;
-        --blanco: #fdfaf4;
-    }
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
     .autor-wrapper {
         background-color: var(--crema);
         display: flex;
@@ -141,28 +115,6 @@ import bio from "../../data/bio.json";
         color: var(--carbon);
         position: relative;
         overflow: hidden;
-    }
-
-    /* GRAN LETRA DE FONDO */
-    .fondo-decorativo {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-    }
-
-    .fondo-letra {
-        font-size: clamp(18rem, 40vw, 55rem);
-        font-weight: 300;
-        color: var(--crema-oscura);
-        line-height: 1;
-        user-select: none;
-        margin-right: -4rem;
-        opacity: 0.8;
     }
 
     /* CONTENIDO PRINCIPAL */
@@ -238,7 +190,6 @@ import bio from "../../data/bio.json";
     }
 
     .ornamento-rombo {
-        font-size: 0.4rem;
         color: var(--ocre);
     }
 
@@ -252,8 +203,6 @@ import bio from "../../data/bio.json";
     }
 
     .autor-etiqueta {
-        font-size: 1rem;
-        font-weight: 400;
         letter-spacing: 0.4em;
         text-transform: uppercase;
         color: var(--ocre);
@@ -261,8 +210,6 @@ import bio from "../../data/bio.json";
     }
 
     .autor-nombre {
-        font-size: clamp(2.4rem, 5vw, 4rem);
-        font-weight: 300;
         line-height: 1.05;
         color: var(--carbon);
         font-style: italic;
@@ -284,7 +231,6 @@ import bio from "../../data/bio.json";
     }
 
     .divisor-simbolo {
-        font-size: 1.1rem;
         color: var(--ocre);
         line-height: 1;
     }
@@ -298,75 +244,8 @@ import bio from "../../data/bio.json";
     }
 
     .autor-bio p {
-        font-size: 1.2rem;
-        font-weight: 300;
         line-height: 1.9;
         color: var(--tinta);
-    }
-
-    /* CTA */
-    .autor-cta {
-        display: flex;
-        align-items: center;
-    }
-
-    .cta-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        text-decoration: none;
-        color: var(--blanco);
-        background: var(--carbon);
-        font-size: 0.7rem;
-        font-weight: 500;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        padding: 0.85rem 2rem;
-        position: relative;
-        transition:
-            background 0.25s,
-            color 0.25s;
-    }
-
-    .cta-btn::before {
-        content: "";
-        position: absolute;
-        inset: -3px;
-        border: 1px solid var(--linea);
-        pointer-events: none;
-        transition: inset 0.2s;
-    }
-
-    .cta-btn:hover {
-        background: var(--ocre);
-    }
-
-    .cta-btn:hover::before {
-        inset: -5px;
-    }
-
-    .cta-flecha {
-        transition: transform 0.2s;
-    }
-
-    .cta-btn:hover .cta-flecha {
-        transform: translateX(5px);
-    }
-
-    /* FIRMA LATERAL VERTICAL */
-    .firma-lateral {
-        position: fixed;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%) rotate(90deg);
-        transform-origin: center center;
-        z-index: 2;
-    }
-
-    .contenedor-links-bio {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
     }
 
     /* RESPONSIVE */
@@ -397,19 +276,6 @@ import bio from "../../data/bio.json";
 
         .autor-divisor {
             max-width: 200px;
-        }
-
-        .autor-cta {
-            justify-content: center;
-        }
-
-        .firma-lateral {
-            display: none;
-        }
-
-        .fondo-letra {
-            font-size: 60vw;
-            margin-right: -2rem;
         }
     }
 

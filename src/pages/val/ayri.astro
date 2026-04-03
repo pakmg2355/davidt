@@ -25,13 +25,14 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 			<div class="fila-estante">
 				<div class="col imagen">
 					<h5 class="texto-pantallas fade-up">Portada</h5>
-					<img class="img-pantallas" src="/img/portada1.png" />
-					<img class="img-pantallas" src="/img/portada2.png" />
-					<img class="img-pantallas" src="/img/portada3.png" />
-					<img class="img-pantallas" src="/img/portada4.png" />
+					<img class="img-pantallas" src="/img/portada1.jpg" />
+					<img class="img-pantallas" src="/img/portada2.jpg" />
+					<img class="img-pantallas" src="/img/portada3.jpg" />
+					<img class="img-pantallas" src="/img/portada4.jpg" />
 				</div>
 
 				<div class="col texto">
+					<h2 class="texto-pantallas-h fade-up">Llibretes</h2>
 					<p class="texto-imagen fade-up">
 						Hi ha emocions que no sempre s'entenen.
 					</p>
@@ -41,8 +42,8 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						queden dins.
 					</p>
 					<div class="div-img-movil">
-						<img class="img-movil" src="/img/portada1.png" />
-						<img class="img-movil" src="/img/contraportada1.png" />
+						<img class="img-movil" src="/img/portada1.jpg" />
+						<img class="img-movil" src="/img/contraportada1.jpg" />
 					</div>
 					<p class="texto-imagen fade-up">
 						Sense nom, sense sortida.
@@ -60,8 +61,8 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						però pesa.
 					</p>
 					<div class="div-img-movil">
-						<img class="img-movil" src="/img/portada2.png" />
-						<img class="img-movil" src="/img/contraportada2.png" />
+						<img class="img-movil" src="/img/portada2.jpg" />
+						<img class="img-movil" src="/img/contraportada2.jpg" />
 					</div>
 					<p class="texto-imagen fade-up">
 						Sap quan alguna cosa no. Veurà que el món canvia, i no
@@ -74,8 +75,8 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						abans de comprendre.
 					</p>
 					<div class="div-img-movil">
-						<img class="img-movil" src="/img/portada3.png" />
-						<img class="img-movil" src="/img/contraportada3.png" />
+						<img class="img-movil" src="/img/portada3.jpg" />
+						<img class="img-movil" src="/img/contraportada3.jpg" />
 					</div>
 
 					<p class="texto-imagen fade-up">
@@ -95,8 +96,8 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 						el soroll en alguna cosa que pots comprendre.
 					</p>
 					<div class="div-img-movil">
-						<img class="img-movil" src="/img/portada4.png" />
-						<img class="img-movil" src="/img/contraportada4.png" />
+						<img class="img-movil" src="/img/portada4.jpg" />
+						<img class="img-movil" src="/img/contraportada4.jpg" />
 					</div>
 
 					<p class="texto-imagen fade-up">
@@ -118,33 +119,66 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 				<div class="col imagen">
 					<h5 class="texto-pantallas fade-up">Contraportada</h5>
-					<img class="img-pantallas" src="/img/contraportada1.png" />
-					<img class="img-pantallas" src="/img/contraportada2.png" />
-					<img class="img-pantallas" src="/img/contraportada3.png" />
-					<img class="img-pantallas" src="/img/contraportada4.png" />
+					<img class="img-pantallas" src="/img/contraportada1.jpg" />
+					<img class="img-pantallas" src="/img/contraportada2.jpg" />
+					<img class="img-pantallas" src="/img/contraportada3.jpg" />
+					<img class="img-pantallas" src="/img/contraportada4.jpg" />
 				</div>
 			</div>
 		</section>
+		<hr />
+
+		<section class="pie">
+			<p class="texto-imagen fade-up">
+				Pots triar qualsevol combinació de portada i contraportada.
+				Envia'm un missatge en la secció de contacte per a qualsevol
+				comanda i informació personalitzada.
+			</p>
+			<hr />
+
+			<a
+				class="libro-enlace"
+				target="_blank"
+				href="https://www.amazon.com"
+				rel="noopener noreferrer"
+			>
+				<img class="img-amazon" src="/img/amazon.png" />
+				<span>Trobar a Amazon</span>
+				<span class="enlace-flecha">→</span>
+			</a>
+		</section>
+		<hr />
+
+		<footer class="biblioteca-footer">
+			<div class="contenedor-links-bio">
+				<div class="autor-cta">
+					<a href="/val/libros" class="cta-btn">
+						<span class="cta-flecha">←</span>
+						<span class="cta-texto"> Jlurbook </span>
+					</a>
+				</div>
+				<div class="autor-cta">
+					<a href="/val/juegos" class="cta-btn">
+						<span class="cta-texto"> Jocs </span>
+						<span class="cta-flecha">→</span>
+					</a>
+				</div>
+			</div>
+		</footer>
 	</div>
 </BaseLayout>
 
 <style>
-	/* ---------------- VARIABLES ---------------- */
-	:root {
-		--fondo: #0f0e0c;
-		--tinta: #d6d1c4;
-		--tinta-suave: #a8a394;
-		--detalle: #b8860b;
-	}
-
 	body {
-		margin: 0;
-		background: var(--fondo);
-		font-family: "Georgia", serif;
+		background: var(--negro);
 	}
 
-	.img-pantallas {
-		width: 10%;
+	/* SEPARADOR */
+	.libro-separador-linea {
+		height: 1px;
+		background: var(--linea);
+		width: 100%;
+		border-radius: 2px;
 	}
 
 	.img-movil {
@@ -155,21 +189,16 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 
 	/* HEADER */
 	.biblioteca-header {
-		background: linear-gradient(180deg, #1a1815, #0f0e0c);
+		background: linear-gradient(180deg, #2a2928, #000000);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 	}
-
 	.cabecera-libros {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
 		padding: 0px;
-		color: var(--tinta-suave);
-	}
-
-	.cabecera-libros p {
-		font-size: 1.8rem;
+		color: rgb(164, 164, 164);
 	}
 
 	.logo-foto {
@@ -236,8 +265,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 	}
 
 	.texto-imagen {
-		color: var(--tinta-suave);
-		font-size: 1.25rem;
+		color: rgb(164, 164, 164);
 		line-height: 1.9;
 		text-align: justify;
 		margin-bottom: 22px;
@@ -245,28 +273,48 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 	}
 
 	.texto-imagen.inicio::first-letter {
-		font-size: 3rem;
 		float: left;
 		padding-right: 8px;
-		color: var(--detalle);
-		font-weight: bold;
+		color: rgb(164, 164, 164);
 	}
 
 	.texto-imagen.final {
-		color: var(--tinta);
+		color: rgb(164, 164, 164);
 		font-style: italic;
 		text-align: center;
 		margin-top: 40px;
 	}
 
 	.texto-pantallas {
-		color: var(--tinta);
-		font-size: 1rem;
+		color: rgb(164, 164, 164);
 		letter-spacing: 2px;
 		text-transform: uppercase;
 		text-align: center;
 		margin-bottom: 10px;
 		opacity: 0.8;
+	}
+
+	.texto-pantallas-h {
+		color: rgb(164, 164, 164);
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 10px;
+		opacity: 0.8;
+	}
+
+	.pie {
+		background: linear-gradient(180deg, #000000, #2a2928);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		padding: 15px;
+	}
+
+	/* FOOTER */
+	.biblioteca-footer {
+		background: linear-gradient(180deg, var(--negro), var(--carbon));
+		border-bottom: 1px solid var(--linea);
+		align-items: center;
+		padding: 20px;
 	}
 
 	/* RESPONSIVE */
@@ -297,7 +345,7 @@ import BaseLayout from "../../layouts/val/BaseLayout.astro";
 			justify-content: center;
 			gap: 10px;
 			padding: 10px;
-			color: var(--tinta-suave);
+			color: rgb(164, 164, 164);
 		}
 
 		.fila-estante {

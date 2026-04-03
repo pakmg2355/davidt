@@ -1,12 +1,11 @@
 ---
 import BaseLayout from "../../layouts/es/BaseLayout.astro";
-import libros from "../../data/libros.json";
 ---
 
 <BaseLayout title="Biblioteca">
 	<div class="biblioteca-wrapper">
 		<header class="biblioteca-header">
-			<div class="contenedor">
+			<div class="">
 				<div class="cabecera-libros">
 					<div class="foto-marco-interior">
 						<img
@@ -16,13 +15,14 @@ import libros from "../../data/libros.json";
 							loading="eager"
 						/>
 					</div>
-
-					<p>
-						Bievenido a mi Biblioteca. Explrora un espacio dedicado
-						a la lectura y al descubrimiento. Aqui encontrarás una
-						selección de libros que reflexionan sobre mi pasión por
-						las histórias, el pensamiento y la creatividad.
-					</p>
+					<div class="texto-cabecera">
+						<p>
+							Bienvenido a mi biblioteca. Un lugar para leer sin
+							prisas. Aquí encontrarás historias escritas desde mi
+							forma de ver la vida, que reflejan cómo entiendo el
+							mundo.
+						</p>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -131,238 +131,195 @@ import libros from "../../data/libros.json";
 		</section>
 
 		<footer class="biblioteca-footer">
-			<div class="contenedor">
-				<div class="footer-ornamento">— fin —</div>
+			<div class="contenedor-links-bio">
+				<div class="autor-cta">
+					<a href="/es/" class="cta-btn">
+						<span class="cta-flecha">←</span>
+						<span class="cta-texto"> Sobre mí </span>
+					</a>
+				</div>
+				<div class="autor-cta">
+					<a href="/es/ayri" class="cta-btn">
+						<span class="cta-texto"> Ayri </span>
+						<span class="cta-flecha">→</span>
+					</a>
+				</div>
 			</div>
 		</footer>
 	</div>
+</BaseLayout>
 
-	<style>
-		:root {
-			--crema: #fdf6ee;
-			--crema-oscura: #f0e6d2;
-			--ocre: #b8860b;
-			--ocre-claro: #d4a520;
-			--carbon: #1a1714;
-			--tinta: #3d3830;
-			--linea: #c9bfa8;
-			--sombra: rgba(0, 0, 0, 0.08);
-		}
+<style>
+	* {
+		box-sizing: border-box;
+	}
 
-		* {
-			box-sizing: border-box;
-		}
+	/* HEADER */
+	.biblioteca-header {
+		background: linear-gradient(180deg, var(--crema-oscura), var(--crema));
+		border-bottom: 1px solid var(--linea);
+		align-items: center;
+	}
 
-		body {
-			margin: 0;
-			background: var(--crema);
-		}
+	.cabecera-libros {
+		padding: 0px;
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px;
+	}
 
-		/* 🔥 CONTENEDOR CENTRAL (CLAVE) */
-		.contenedor {
-			margin: 0;
-		}
+	.cabecera-libros p {
+		line-height: 1.6;
+		max-width: 500px;
+		text-align: right;
+		margin: 0;
+	}
 
-		/* HEADER */
-		.biblioteca-header {
-			background: linear-gradient(
-				180deg,
-				var(--crema-oscura),
-				var(--crema)
-			);
-			border-bottom: 1px solid var(--linea);
-			align-items: center;
-		}
+	.logo-foto {
+		width: 180px;
+		height: 180px;
+		margin-bottom: 10px;
+		border-radius: 50%;
+		object-fit: cover;
+		box-shadow: 0 10px 25px var(--sombra);
+		transition: 0.3s;
+		opacity: 0.8;
+	}
 
-		.cabecera-libros {
-			padding: 10px;
-			display: flex;
-			width: 100%;
-			align-items: center;
-			justify-content: space-around;
-		}
+	.logo-foto:hover {
+		transform: scale(1.05);
+	}
 
-		.cabecera-libros p {
-			font-size: 1.25rem;
-			line-height: 1.6;
-			max-width: 500px;
-			text-align: right;
-			margin: 0;
-		}
+	/* ESTANTES */
+	.estantes {
+		width: 100%;
+		background-color: var(--crema-oscura);
+		padding: 3rem 0;
+	}
+	.contenedor {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 
-		.logo-foto {
-			width: 180px;
-			height: 180px;
-			margin-bottom: 10px;
-			border-radius: 50%;
-			object-fit: cover;
-			box-shadow: 0 10px 25px var(--sombra);
-			transition: 0.3s;
-		}
+	.libro-fila {
+		display: flex;
+		grid-template-columns: 260px 1fr;
+		gap: 3rem;
+		align-items: start;
+		padding: 3rem 0;
+		border-bottom: 1px solid var(--linea);
+	}
 
-		.logo-foto:hover {
-			transform: scale(1.05);
-		}
+	.libro-fila--invertida {
+		grid-template-columns: 1fr 260px;
+	}
 
-		/* ESTANTES */
-		.estantes {
-			width: 100%;
-			margin-left: calc(50% - 50vw); /* 🔥 truco pro */
-			background-color: var(--crema-oscura);
-			padding: 3rem 0;
-		}
-		.contenedor {
-			max-width: 1200px;
-			margin: 0 auto;
-		}
+	.libro-fila--invertida .libro-portada-wrap {
+		order: 2;
+	}
 
+	/* IMAGEN */
+	.libro-portada-wrap {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.libro-imagen-marco {
+		box-shadow:
+			8px 8px 0 var(--crema-oscura),
+			12px 12px 20px var(--sombra);
+		transition: 0.3s;
+	}
+
+	.libro-fila:hover .libro-imagen-marco {
+		transform: translateY(-5px);
+	}
+
+	.libro-imagen {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	/* INFO */
+	.libro-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.libro-categoria {
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--ocre);
+	}
+
+	.libro-titulo {
+		font-style: italic;
+		margin: 0;
+	}
+
+	.libro-descripcion {
+		margin-bottom: -15px;
+	}
+
+	.libro-descripcion-info {
+		margin-bottom: 5px;
+	}
+
+	/* FOOTER */
+	.biblioteca-footer {
+		background: linear-gradient(180deg, var(--crema), var(--crema-oscura));
+		border-bottom: 1px solid var(--linea);
+		align-items: center;
+		padding: 20px;
+	}
+
+	.footer-ornamento {
+		font-style: italic;
+	}
+
+	.info-libro {
+		padding: 20px;
+	}
+
+	/* RESPONSIVE */
+	@media (max-width: 900px) {
 		.libro-fila {
-			display: flex;
+			display: block;
 			grid-template-columns: 260px 1fr;
 			gap: 3rem;
 			align-items: center;
 			padding: 3rem 0;
 			border-bottom: 1px solid var(--linea);
+			overflow: hidden;
 		}
 
-		.libro-fila--invertida {
-			grid-template-columns: 1fr 260px;
-		}
-
-		.libro-fila--invertida .libro-portada-wrap {
-			order: 2;
-		}
-
-		/* IMAGEN */
-		.libro-portada-wrap {
-			display: flex;
-			justify-content: center;
-		}
-
-		.libro-imagen-marco {
-			box-shadow:
-				8px 8px 0 var(--crema-oscura),
-				12px 12px 20px var(--sombra);
-			transition: 0.3s;
-		}
-
-		.libro-fila:hover .libro-imagen-marco {
-			transform: translateY(-5px);
-		}
-
-		.libro-imagen {
-			width: 100%;
-			object-fit: cover;
-		}
-
-		/* INFO */
-		.libro-info {
-			display: flex;
+		.cabecera-libros {
 			flex-direction: column;
-			gap: 1rem;
-			width: 100%;
-		}
-
-		.libro-categoria {
-			font-size: 0.7rem;
-			letter-spacing: 0.2em;
-			text-transform: uppercase;
-			color: var(--ocre);
-		}
-
-		.libro-titulo {
-			font-size: 2rem;
-			font-style: italic;
-			margin: 0;
-		}
-
-		.libro-separador {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			max-width: 200px;
-		}
-
-		.libro-separador-linea {
-			flex: 1;
-			height: 1px;
-			background: var(--linea);
-		}
-
-		.libro-descripcion {
-			line-height: 1; /* mejor legibilidad */
-			padding-left: 20px;
-			padding-right: 20px;
-			text-align: justify;
-			hyphens: auto; /* divide palabras con guiones */
-			margin-bottom: -15px;
-		}
-
-		.libro-descripcion-info {
-			margin-bottom: 5px;
-		}
-
-		.libro-enlace {
-			margin-top: 30px;
-			text-decoration: none;
-			font-size: 0.75rem;
-			letter-spacing: 0.2em;
-			display: inline-flex;
-			gap: 0.5rem;
-			align-items: center;
-		}
-
-		.img-amazon {
-			width: 50px;
-		}
-
-		.libro-enlace:hover {
-			color: var(--ocre);
-		}
-
-		/* FOOTER */
-		.biblioteca-footer {
-			padding: 2rem 0;
 			text-align: center;
 		}
 
-		.footer-ornamento {
-			font-style: italic;
+		.cabecera-libros p {
+			text-align: center;
 		}
 
-		/* RESPONSIVE */
-		@media (max-width: 768px) {
-			.libro-fila {
-				display: block;
-				grid-template-columns: 260px 1fr;
-				gap: 3rem;
-				align-items: center;
-				padding: 3rem 0;
-				border-bottom: 1px solid var(--linea);
-			}
-
-			.cabecera-libros {
-				flex-direction: column;
-				text-align: center;
-			}
-
-			.cabecera-libros p {
-				text-align: center;
-			}
-
-			.libro-info {
-				align-items: center;
-				text-align: justify;
-			}
-
-			.libro-fila--invertida .libro-info {
-				align-items: center;
-				text-align: center;
-			}
+		.libro-info {
+			align-items: center;
+			text-align: justify;
 		}
-		.info-libro {
-			padding: 20px;
-			font-size: 1.2rem;
+
+		.libro-imagen {
+			width: 100vw;
+			object-fit: contain;
 		}
-	</style>
-</BaseLayout>
+
+		.libro-fila--invertida .libro-info {
+			align-items: center;
+			text-align: center;
+		}
+	}
+</style>

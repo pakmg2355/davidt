@@ -10,7 +10,7 @@ const imagenes = Object.values(
 
 <BaseLayout title="Dibujos">
     <header class="biblioteca-header">
-        <div class="contenedor">
+        <div class="">
             <div class="cabecera-libros">
                 <div class="foto-marco-interior">
                     <img
@@ -21,7 +21,7 @@ const imagenes = Object.values(
                     />
                 </div>
 
-                <p>Benvinguts a la meua galería de dibuixos fets a llapis.</p>
+                <p>Benvingut a la meua galería de dibuixos.</p>
             </div>
         </div>
     </header>
@@ -36,32 +36,51 @@ const imagenes = Object.values(
             ))
         }
     </section>
+    <form
+        class="contacto-form formulario"
+        name="dibujos"
+        method="POST"
+        data-netlify="true"
+    >
+        <label class="formulario-label"
+            >Si estàs interessat en algun dibuix, envia'm un correu per a
+            demanar mes informació. Si vols un dibuix personalitzat, no dubtes a
+            contactar també amb un correu.</label
+        >
+        <input
+            class="formulario-input"
+            placeholder="Tu correo electrónico"
+            name="email"
+        />
+        <textarea
+            class="campo-input campo-textarea"
+            id="mensaje"
+            name="mensaje"
+            placeholder="Escribe tu mensaje aquí..."
+            required></textarea>
+        <button class="formulario-button">ENVIAR CONSULTA</button>
+    </form>
+    <footer class="biblioteca-footer">
+        <div class="contenedor-links-bio">
+            <div class="autor-cta">
+                <a href="/val/" class="cta-btn">
+                    <span class="cta-flecha">←</span>
+                    <span class="cta-texto"> Sobre mí </span>
+                </a>
+            </div>
+            <div class="autor-cta">
+                <a href="/val/ayri" class="cta-btn">
+                    <span class="cta-texto"> Ayri </span>
+                    <span class="cta-flecha">→</span>
+                </a>
+            </div>
+        </div>
+    </footer>
 </BaseLayout>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
     body {
-        margin: 0;
         background: var(--crema);
-    }
-
-    /* 🔥 CONTENEDOR CENTRAL (CLAVE) */
-    .contenedor {
-        margin: 0;
-    }
-
-    :root {
-        --crema: #fdf6ee;
-        --crema-oscura: #f0e6d2;
-        --ocre: #b8860b;
-        --ocre-claro: #d4a520;
-        --carbon: #1a1714;
-        --tinta: #3d3830;
-        --linea: #c9bfa8;
-        --sombra: rgba(0, 0, 0, 0.08);
     }
 
     /* HEADER */
@@ -76,11 +95,11 @@ const imagenes = Object.values(
         display: flex;
         width: 100%;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 15px;
     }
 
     .cabecera-libros p {
-        font-size: 1.25rem;
         line-height: 1.6;
         max-width: 500px;
         text-align: right;
@@ -110,13 +129,9 @@ const imagenes = Object.values(
     }
 
     .imagen {
-        width: 60%;
-        aspect-ratio: 1;
-
+        width: 70%;
         background: rgb(119, 119, 119);
-        padding: 0.5rem;
-
-        border-radius: 16px;
+        padding: 0.1rem;
 
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
@@ -125,5 +140,113 @@ const imagenes = Object.values(
 
     .imagen:hover {
         transform: translateY(-4px);
+    }
+
+    /* FORMULARIO */
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+
+        max-width: 420px;
+        margin: 40px auto;
+        padding: 28px;
+
+        background: #fffaf3; /* crema suave */
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .formulario-label {
+        color: #5a4a3f; /* marrón suave */
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .formulario-input {
+        width: 100%;
+        padding: 12px 14px;
+
+        border: 1px solid #e6dcd2;
+        border-radius: 10px;
+        outline: none;
+
+        background: #fffdf9;
+        color: #4a3f35;
+
+        transition: all 0.25s ease;
+    }
+
+    .formulario-input::placeholder {
+        color: #b8a99a;
+    }
+
+    .formulario-input:focus {
+        border-color: #d8c3a5;
+        box-shadow: 0 0 0 3px rgba(216, 195, 165, 0.3);
+        background: #ffffff;
+    }
+
+    .formulario-button {
+        width: 100%;
+        padding: 12px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: linear-gradient(135deg, #f3e5d8, #e7d3c1);
+        color: #5a4a3f;
+
+        letter-spacing: 0.5px;
+
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    .formulario-button:hover {
+        background: linear-gradient(135deg, #e9d8c7, #dcc3ad);
+        transform: translateY(-1px);
+    }
+
+    .formulario-button:active {
+        transform: scale(0.98);
+    }
+
+    .campo-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--linea);
+        padding: 0.6rem 0;
+
+        color: var(--carbon);
+        width: 100%;
+        outline: none;
+        transition: border-color 0.25s;
+        border-radius: 0;
+        -webkit-appearance: none;
+    }
+
+    .campo-input::placeholder {
+        color: var(--linea);
+    }
+
+    .campo-input:focus {
+        border-bottom-color: var(--ocre);
+    }
+
+    .campo-textarea {
+        min-height: 140px;
+        resize: none;
+        line-height: 1.7;
+        padding-top: 0.4rem;
+    }
+
+    /* FOOTER */
+    .biblioteca-footer {
+        background: linear-gradient(180deg, var(--crema), var(--crema-oscura));
+        border-bottom: 1px solid var(--linea);
+        align-items: center;
+        padding: 20px;
     }
 </style>

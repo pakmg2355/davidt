@@ -1,11 +1,34 @@
+/* ---------------- VARIABLES ---------------- */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap");
+
+:root {
+    --crema: #f5f0e8;
+    --crema-oscura: #ede6d4;
+    --ocre: #b8860b;
+    --ocre-claro: #d4a520;
+    --carbon: #1a1714;
+    --tinta: #3d3830;
+    --tinta-suave: #6b6358;
+    --linea: #c9bfa8;
+    --blanco: #fdfaf4;
+    --negro: black;
+}
+
 /* reset y tipografía */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     padding: 0;
     color: rgb(37, 37, 37);
     font-family: 'EB Garamond';
-    font-weight: 500;
-
+    font-weight: 300;
+    font-size: 1.4rem;
 }
 
 main {
@@ -13,7 +36,11 @@ main {
     justify-content: center;
 }
 
-/* animaciones */
+.contenedor {
+    margin: 0;
+}
+
+/* ANIMACIONES */
 .fade-up {
     opacity: 0;
     transform: translateY(200px);
@@ -23,4 +50,132 @@ main {
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.img-amazon {
+    width: 50px;
+}
+
+/* TEXTOS */
+p {
+    text-indent: 1.5em;
+    line-height: 1.5;
+    /* mejor legibilidad */
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    hyphens: auto;
+    /* divide palabras con guiones */
+}
+
+p.corto {
+    text-indent: 0;
+}
+
+.fondo-letra {
+    font-size: clamp(18rem, 40vw, 55rem);
+    color: var(--crema-oscura);
+    line-height: 1;
+    user-select: none;
+    margin-right: -4rem;
+    opacity: 0.8;
+}
+
+.libro-separador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 10px;
+}
+
+.libro-separador-linea {
+    flex: 1;
+    height: 1px;
+    background: var(--linea);
+}
+
+/* LETRA DE FONDO */
+.fondo-decorativo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* BOTÓN LINK */
+.contenedor-links-bio {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.autor-cta {
+    display: flex;
+    align-items: center;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--blanco);
+    background: var(--carbon);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    position: relative;
+    transition:
+        background 0.25s,
+        color 0.25s;
+}
+
+.cta-btn::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 1px solid var(--linea);
+    pointer-events: none;
+    transition: inset 0.2s;
+}
+
+.cta-btn:hover {
+    background: var(--ocre);
+}
+
+.cta-btn:hover::before {
+    inset: -5px;
+}
+
+.cta-flecha {
+    transition: transform 0.2s;
+}
+
+.cta-btn:hover .cta-flecha {
+    transform: translateX(5px);
+}
+
+.libro-enlace {
+    margin-top: 20px;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: rgb(137, 137, 137);
+}
+
+.img-amazon {
+    width: 50px;
+}
+
+.libro-enlace:hover {
+    color: var(--ocre);
 }

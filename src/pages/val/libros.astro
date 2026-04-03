@@ -1,12 +1,11 @@
 ---
 import BaseLayout from "../../layouts/val/BaseLayout.astro";
-import libros from "../../data/libros.json";
 ---
 
 <BaseLayout title="Biblioteca">
 	<div class="biblioteca-wrapper">
 		<header class="biblioteca-header">
-			<div class="contenedor">
+			<div class="">
 				<div class="cabecera-libros">
 					<div class="foto-marco-interior">
 						<img
@@ -18,17 +17,17 @@ import libros from "../../data/libros.json";
 					</div>
 
 					<p>
-						Benvingut a la meua Biblioteca. Explora un espai dedicat
-						a la lectura i al descobriment. Ací trobaràs una
-						selecció de llibres que reflecteixen la meua passió per
-						les històries, el pensament i la creativitat.
+						Benvingut a la meva biblioteca. Un lloc per llegir sense
+						presses. Aquí trobaràs històries escrites des de la meva
+						manera de veure la vida, que reflecteixen com entenc el
+						món.
 					</p>
 				</div>
 			</div>
 		</header>
 
 		<section class="estantes">
-			<div class="contenedor">
+			<div class="">
 				<article class="libro-fila">
 					<div class="libro-portada-wrap">
 						<div class="libro-imagen-marco">
@@ -131,37 +130,27 @@ import libros from "../../data/libros.json";
 		</section>
 
 		<footer class="biblioteca-footer">
-			<div class="contenedor">
-				<div class="footer-ornamento">— fi —</div>
+			<div class="contenedor-links-bio">
+				<div class="autor-cta">
+					<a href="/val/" class="cta-btn">
+						<span class="cta-flecha">←</span>
+						<span class="cta-texto"> Sobre mi </span>
+					</a>
+				</div>
+				<div class="autor-cta">
+					<a href="/val/ayri" class="cta-btn">
+						<span class="cta-texto"> Ayri </span>
+						<span class="cta-flecha">→</span>
+					</a>
+				</div>
 			</div>
 		</footer>
 	</div>
 </BaseLayout>
 
 <style>
-	:root {
-		--crema: #fdf6ee;
-		--crema-oscura: #f0e6d2;
-		--ocre: #b8860b;
-		--ocre-claro: #d4a520;
-		--carbon: #1a1714;
-		--tinta: #3d3830;
-		--linea: #c9bfa8;
-		--sombra: rgba(0, 0, 0, 0.08);
-	}
-
 	* {
 		box-sizing: border-box;
-	}
-
-	body {
-		margin: 0;
-		background: var(--crema);
-	}
-
-	/* 🔥 CONTENEDOR CENTRAL (CLAVE) */
-	.contenedor {
-		margin: 0;
 	}
 
 	/* HEADER */
@@ -172,15 +161,15 @@ import libros from "../../data/libros.json";
 	}
 
 	.cabecera-libros {
-		padding: 10px;
+		padding: 0px;
 		display: flex;
 		width: 100%;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
+		padding: 15px;
 	}
 
 	.cabecera-libros p {
-		font-size: 1.25rem;
 		line-height: 1.6;
 		max-width: 500px;
 		text-align: right;
@@ -195,6 +184,7 @@ import libros from "../../data/libros.json";
 		object-fit: cover;
 		box-shadow: 0 10px 25px var(--sombra);
 		transition: 0.3s;
+		opacity: 0.8;
 	}
 
 	.logo-foto:hover {
@@ -204,7 +194,6 @@ import libros from "../../data/libros.json";
 	/* ESTANTES */
 	.estantes {
 		width: 100%;
-		margin-left: calc(50% - 50vw); /* 🔥 truco pro */
 		background-color: var(--crema-oscura);
 		padding: 3rem 0;
 	}
@@ -217,7 +206,7 @@ import libros from "../../data/libros.json";
 		display: flex;
 		grid-template-columns: 260px 1fr;
 		gap: 3rem;
-		align-items: center;
+		align-items: start;
 		padding: 3rem 0;
 		border-bottom: 1px solid var(--linea);
 	}
@@ -234,6 +223,7 @@ import libros from "../../data/libros.json";
 	.libro-portada-wrap {
 		display: flex;
 		justify-content: center;
+		width: 100%;
 	}
 
 	.libro-imagen-marco {
@@ -261,37 +251,17 @@ import libros from "../../data/libros.json";
 	}
 
 	.libro-categoria {
-		font-size: 0.7rem;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--ocre);
 	}
 
 	.libro-titulo {
-		font-size: 2rem;
 		font-style: italic;
 		margin: 0;
 	}
 
-	.libro-separador {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		max-width: 200px;
-	}
-
-	.libro-separador-linea {
-		flex: 1;
-		height: 1px;
-		background: var(--linea);
-	}
-
 	.libro-descripcion {
-		line-height: 1; /* mejor legibilidad */
-		padding-left: 20px;
-		padding-right: 20px;
-		text-align: justify;
-		hyphens: auto; /* divide palabras con guiones */
 		margin-bottom: -15px;
 	}
 
@@ -299,36 +269,16 @@ import libros from "../../data/libros.json";
 		margin-bottom: 5px;
 	}
 
-	.libro-enlace {
-		margin-top: 30px;
-		text-decoration: none;
-		font-size: 0.75rem;
-		letter-spacing: 0.2em;
-		display: inline-flex;
-		gap: 0.5rem;
-		align-items: center;
-	}
-
-	.img-amazon {
-		width: 50px;
-	}
-
-	.libro-enlace:hover {
-		color: var(--ocre);
-	}
-
 	/* FOOTER */
 	.biblioteca-footer {
-		padding: 2rem 0;
-		text-align: center;
-	}
-
-	.footer-ornamento {
-		font-style: italic;
+		background: linear-gradient(180deg, var(--crema), var(--crema-oscura));
+		border-bottom: 1px solid var(--linea);
+		align-items: center;
+		padding: 20px;
 	}
 
 	/* RESPONSIVE */
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
 		.libro-fila {
 			display: block;
 			grid-template-columns: 260px 1fr;
@@ -336,6 +286,7 @@ import libros from "../../data/libros.json";
 			align-items: center;
 			padding: 3rem 0;
 			border-bottom: 1px solid var(--linea);
+			overflow: hidden;
 		}
 
 		.cabecera-libros {
@@ -352,13 +303,14 @@ import libros from "../../data/libros.json";
 			text-align: justify;
 		}
 
+		.libro-imagen {
+			width: 100vw;
+			object-fit: contain;
+		}
+
 		.libro-fila--invertida .libro-info {
 			align-items: center;
 			text-align: center;
 		}
-	}
-	.info-libro {
-		padding: 20px;
-		font-size: 1.2rem;
 	}
 </style>
