@@ -97,7 +97,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 				<div class="lateral-bloque">
 					<p class="lateral-label">Email</p>
 					<a class="lateral-valor" href="mailto:hola@ejemplo.com"
-						>hola@ejemplo.com</a
+						>jlurbook@hotmail.com</a
 					>
 				</div>
 
@@ -108,22 +108,34 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 					<div class="lateral-redes">
 						<a
 							class="lateral-red"
-							href="#"
+							href="https://www.facebook.com/profile.php?id=61577551774045"
 							target="_blank"
-							rel="noopener noreferrer">Instagram</a
+							rel="noopener noreferrer"
 						>
+							<div class="contenedor-redes">
+								<img
+									class="img-redes"
+									src="/img/facebook.png"
+								/>
+
+								<div>Facebook</div>
+							</div>
+						</a>
 						<a
 							class="lateral-red"
-							href="#"
+							href="https://www.instagram.com/jlurbook/"
 							target="_blank"
-							rel="noopener noreferrer">Twitter / X</a
+							rel="noopener noreferrer"
 						>
-						<a
-							class="lateral-red"
-							href="#"
-							target="_blank"
-							rel="noopener noreferrer">LinkedIn</a
-						>
+							<div class="contenedor-redes">
+								<img
+									class="img-redes"
+									src="/img/instagram.png"
+								/>
+
+								<div>Instagram</div>
+							</div>
+						</a>
 					</div>
 				</div>
 
@@ -225,6 +237,16 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 		align-items: start;
 		border-top: 1px solid var(--linea);
 		padding-top: 3rem;
+	}
+
+	.img-redes {
+		width: 50px;
+		margin-right: 5px;
+	}
+
+	.contenedor-redes {
+		display: flex;
+		align-items: center;
 	}
 
 	/* FORMULARIO */
@@ -401,6 +423,7 @@ import BaseLayout from "../../layouts/es/BaseLayout.astro";
 			color 0.2s,
 			border-color 0.2s;
 		width: fit-content;
+		margin-top: 10px;
 	}
 
 	.lateral-red:hover {
